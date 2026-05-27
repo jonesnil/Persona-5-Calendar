@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="persona5calendar.client/persona5calendar.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="Persona5Calendar.Server/Persona5Calendar.Server.csproj" />
+</Solution>

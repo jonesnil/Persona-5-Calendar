@@ -1,0 +1,35 @@
+﻿.calendarLayout {
+    height: 100vh;
+    display: grid;
+    grid-template-areas:
+        "navBar navBar"
+        "calendar details";
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 2fr 1fr;
+}
+
+@media only screen and (max-width: 768px) {
+    .calendarLayout {
+        height: 100vh;
+        display: grid;
+        grid-template-areas:
+            "navBar"
+            "calendar"
+            "details";
+        grid-template-rows: auto 1fr 2fr;
+        grid-template-columns: 1fr;
+    }
+}
+
+.navBar {
+    grid-area: navBar;
+}
+
+.calendar {
+    grid-area: calendar;
+}
+
+.details {
+    grid-area: details;
+}
+

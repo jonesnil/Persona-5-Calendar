@@ -1,0 +1,6 @@
+@Persona5Calendar.Server_HostAddress = http://localhost:5096
+
+GET {{Persona5Calendar.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
