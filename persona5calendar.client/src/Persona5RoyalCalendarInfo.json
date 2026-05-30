@@ -1,31 +1,32 @@
 {
   "Months": [
     {
+      "Year":  "2016",
       "Month": "December",
       "Weeks": [
         [
           {
             "WeekDay": "Sunday",
             "Date": 27,
-            "OutOfMonth": true,
+            "OutOfMonth": "November",
             "Events": []
           },
           {
             "WeekDay": "Monday",
             "Date": 28,
-            "OutOfMonth": true,
+            "OutOfMonth": "November",
             "Events": []
           },
           {
             "WeekDay": "Tuesday",
             "Date": 29,
-            "OutOfMonth": true,
+            "OutOfMonth": "November",
             "Events": []
           },
           {
             "WeekDay": "Wednesday",
             "Date": 30,
-            "OutOfMonth": true,
+            "OutOfMonth": "November",
             "Events": []
           },
           {
@@ -101,7 +102,11 @@
             "WeekDay": "Sunday",
             "Date": 11,
             "OutOfMonth": false,
-            "Events": []
+            "Events": [
+              {
+                "Type": "Jazz Club",
+                "Title": "Debilitate"
+              }]
           },
           {
             "WeekDay": "Monday",
@@ -137,7 +142,11 @@
             "WeekDay": "Saturday",
             "Date": 17,
             "OutOfMonth": false,
-            "Events": []
+            "Events": [
+              {
+                "Type": "Story",
+                "Title": "Last Call"
+              }]
           }
         ],
         [
@@ -157,19 +166,31 @@
             "WeekDay": "Tuesday",
             "Date": 20,
             "OutOfMonth": false,
-            "Events": []
+            "Events": [
+              {
+                "Type": "Exam",
+                "Title": "Final Exams"
+              }]
           },
           {
             "WeekDay": "Wednesday",
             "Date": 21,
             "OutOfMonth": false,
-            "Events": []
+            "Events": [
+              {
+                "Type": "Exam",
+                "Title": "Final Exams"
+              }]
           },
           {
             "WeekDay": "Thursday",
             "Date": 22,
             "OutOfMonth": false,
-            "Events": []
+            "Events": [
+              {
+                "Type": "Exam",
+                "Title": "Final Exams"
+              }]
           },
           {
             "WeekDay": "Friday",
@@ -181,7 +202,11 @@
             "WeekDay": "Saturday",
             "Date": 24,
             "OutOfMonth": false,
-            "Events": []
+            "Events": [
+              {
+                "Type": "Story",
+                "Title": "Mementos"
+              }]
           }
         ],
         [

@@ -1,0 +1,38 @@
+
+.arsenal-regular {
+    font-family: "Arsenal", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.arsenal-bold {
+    font-family: "Arsenal", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.arsenal-regular-italic {
+    font-family: "Arsenal", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.arsenal-bold-italic {
+    font-family: "Arsenal", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.libre-franklin-regular {
+    font-family: "Libre Franklin", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.libre-franklin-bold {
+    font-family: "Libre Franklin", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}

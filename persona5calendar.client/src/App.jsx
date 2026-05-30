@@ -4,15 +4,30 @@ import '../Content/bootstrap.css'
 import '../Scripts/bootstrap.min.js'
 import calendarData from './Persona5RoyalCalendarInfo.json'
 function CalendarEvent({ event }) {
-    return <li className="list-group-item">{event["Title"]}</li>
+    return <li className={"list-group-item arsenal-bold " + event["Type"].replaceAll(' ', '')}>{event["Title"]}</li>
 }
 
-function CalendarDay({ selectedMonthIndex, weekIndex, dayIndex, onCalendarDayClick }) {
+function CalendarDay({ selectedMonthIndex, selectedWeekIndex, selectedDayIndex, weekIndex, dayIndex, onCalendarDayClick }) {
     var day = calendarData["Months"][selectedMonthIndex]["Weeks"][weekIndex][dayIndex];
+    var cellClasses = "arsenal-regular ";
+
+    if (day["OutOfMonth"]) {
+        cellClasses += "outOfMonth ";
+    }
+
+    var dateNumberClasses = "calendarDateNumber "
+
+    if (selectedWeekIndex === weekIndex &&
+        selectedDayIndex === dayIndex) {
+        dateNumberClasses += "fs-4 boxedText libre-franklin-bold rotatedText ";
+    }
+    else {
+        dateNumberClasses += "fs-5 arsenal-bold ";
+    }
 
     return (
-        <td className={day["OutOfMonth"] ? "outOfMonth" : ""} onClick={onCalendarDayClick}>
-            <span style={{ float: "right", display: "block" }} >{day["Date"]}</span>
+        <td className={cellClasses} onClick={onCalendarDayClick}>
+            <span className={dateNumberClasses} >{day["Date"]}</span>
             {("Events" in day && day["Events"].length > 0) ?
                 <ul className="list-group fs-6" style={{ clear: "both", display: "block" }}>
                     {day["Events"].map((event) =>
@@ -22,18 +37,31 @@ function CalendarDay({ selectedMonthIndex, weekIndex, dayIndex, onCalendarDayCli
         </td>)
 }
 
-function NavBar() {
-    return <span className="navBar">~ March 2016 ~</span>
+function NavBar({ selectedMonthIndex }) {
+    var month = calendarData["Months"][selectedMonthIndex];
+
+    return <h1 className="navBar text-center libre-franklin-bold">
+        ~<span className="boxedText" style={{ transform: "rotate(-2deg)" }}>{month["Month"]}</span>&nbsp;
+         <span className="boxedText" style={{ transform: "rotate(1deg)" }}>{month["Year"]}</span>~</h1>
 }
 
-function Calendar({ onDetailsClick, selectedMonthIndex }) {
+function Calendar({ onDetailsClick, selectedMonthIndex, selectedWeekIndex, selectedDayIndex }) {
     function handleClick(weekIndex, dayIndex) {
         onDetailsClick(weekIndex, dayIndex);
     }
 
     return <table className="table calendar">
-            <thead>
-                <tr>
+        <colgroup>
+            <col style={{ width: "14%" }} ></col>
+            <col style={{ width: "14%" }} ></col>
+            <col style={{ width: "14%" }} ></col>
+            <col style={{ width: "14%" }} ></col>
+            <col style={{ width: "14%" }} ></col>
+            <col style={{ width: "14%" }} ></col>
+            <col style={{ width: "14%" }} ></col>
+        </colgroup>
+        <thead>
+            <tr className="text-center">
                     <th>SUN</th>
                     <th>MON</th>
                     <th>TUE</th>
@@ -46,7 +74,7 @@ function Calendar({ onDetailsClick, selectedMonthIndex }) {
         <tbody>
             {calendarData["Months"][selectedMonthIndex]["Weeks"].map((week, weekIndex) =>
                 <tr key={weekIndex}>
-                    {week.map((day, dayIndex) => <CalendarDay key={dayIndex} selectedMonthIndex={selectedMonthIndex} weekIndex={weekIndex} dayIndex={dayIndex} onCalendarDayClick={() => handleClick(weekIndex, dayIndex)}></CalendarDay>)}
+                    {week.map((day, dayIndex) => <CalendarDay key={dayIndex} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex} weekIndex={weekIndex} dayIndex={dayIndex} onCalendarDayClick={() => handleClick(weekIndex, dayIndex)}></CalendarDay>)}
                 </tr>
                 )}
         </tbody>
@@ -58,15 +86,15 @@ function Details({ onClickPreviousDay, onClickNextDay, selectedMonthIndex, selec
 
     return <div className="card details">
         <div className="card-body">
-            <h5 className="card-title text-center">
-                <button className="btn btn-secondary me-2 float-start" onClick={onClickPreviousDay}>{"<"}</button>
+            <h5 className="card-title text-center mb-4 libre-franklin-regular">
+                <button className="btn btn-danger me-2 float-start" onClick={onClickPreviousDay}>{"<"}</button>
                 {selectedDay["WeekDay"]}&nbsp;
-                {calendarData["Months"][selectedMonthIndex]["Month"]}&nbsp;
+                {selectedDay["OutOfMonth"] ? selectedDay["OutOfMonth"] : calendarData["Months"][selectedMonthIndex]["Month"]}&nbsp;
                 {selectedDay["Date"]}
-                <button className="btn btn-secondary ms-2 float-end" onClick={onClickNextDay}>{">"}</button>
+                <button className="btn btn-danger ms-2 float-end" onClick={onClickNextDay}>{">"}</button>
             </h5>
             {("Events" in selectedDay && selectedDay["Events"].length > 0) ?
-                <ul className="list-group fs-6" style={{ clear: "both", display: "block" }}>
+                <ul className="list-group fs-6 arsenal-regular" style={{ clear: "both", display: "block" }}>
                     {selectedDay["Events"].map((event) =>
                         <CalendarEvent key={event["Title"]} event={event}></CalendarEvent>)}
                 </ul> : ""
@@ -108,9 +136,9 @@ export default function App() {
         }
     }
 
-    return (<div className="calendarLayout">
-        <NavBar></NavBar>
-        <Calendar onDetailsClick={displayDetails} selectedMonthIndex={selectedMonthIndex}></Calendar>
+    return (<div className="calendarLayout" data-bs-theme="dark">
+        <NavBar selectedMonthIndex={selectedMonthIndex}></NavBar>
+        <Calendar onDetailsClick={displayDetails} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex}></Calendar>
         <Details onClickPreviousDay={() => iterateSelectedDay(false)} onClickNextDay={() => iterateSelectedDay(true)} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex}></Details>
             </div>)
 }

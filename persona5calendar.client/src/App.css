@@ -1,5 +1,37 @@
 ﻿.outOfMonth {
-    background-color: lightgrey !important;
+    background-color: #3b3b3b !important;
+}
+
+.redBG {
+    background-color: #E90003;
+}
+
+.whiteBG {
+    background-color: white;
+}
+
+.boxedText {
+    color: white;
+    background-color:black;
+    display: inline-block;
+}
+
+.boxedTextRed {
+    color: white;
+    background-color: darkred;
+    display: inline-block;
+}
+
+.rotatedText {
+    transform: rotate(5deg)
+}
+
+.calendarDateNumber {
+    float: right; 
+}
+
+.selectedDay {
+    border-color: red !important;
 }
 
 .calendarLayout {
@@ -29,12 +61,32 @@
     grid-area: navBar;
 }
 
-.calendar {
+.calendar td {
     grid-area: calendar;
-    table-layout: fixed
+    table-layout: fixed;
+    height: calc(100% / 6);
+    border: 2px solid gray;
 }
 
 .details {
     grid-area: details;
 }
 
+.list-group {
+    --bs-list-group-item-padding-x: .4rem !important;
+    --bs-list-group-item-padding-y: .25rem !important;
+    white-space: nowrap;
+    overflow-x: clip;
+}
+
+.Exam {
+    background-color: blue !important;
+}
+
+.Story {
+    background-color: red !important;
+}
+
+.JazzClub {
+    background-color: purple !important;
+}
