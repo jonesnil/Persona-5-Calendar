@@ -1,4 +1,8 @@
-﻿.calendarLayout {
+﻿.outOfMonth {
+    background-color: lightgrey !important;
+}
+
+.calendarLayout {
     height: 100vh;
     display: grid;
     grid-template-areas:
@@ -27,6 +31,7 @@
 
 .calendar {
     grid-area: calendar;
+    table-layout: fixed
 }
 
 .details {

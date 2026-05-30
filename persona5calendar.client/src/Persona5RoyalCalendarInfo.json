@@ -1,0 +1,234 @@
+{
+  "Months": [
+    {
+      "Month": "December",
+      "Weeks": [
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 27,
+            "OutOfMonth": true,
+            "Events": []
+          },
+          {
+            "WeekDay": "Monday",
+            "Date": 28,
+            "OutOfMonth": true,
+            "Events": []
+          },
+          {
+            "WeekDay": "Tuesday",
+            "Date": 29,
+            "OutOfMonth": true,
+            "Events": []
+          },
+          {
+            "WeekDay": "Wednesday",
+            "Date": 30,
+            "OutOfMonth": true,
+            "Events": []
+          },
+          {
+            "WeekDay": "Thursday",
+            "Date": 1,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Friday",
+            "Date": 2,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Saturday",
+            "Date": 3,
+            "OutOfMonth": false,
+            "Events": []
+          }
+        ],
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 4,
+            "OutOfMonth": false,
+            "Events": [
+              {
+                "Type": "Jazz Club",
+                "Title": "Heat Riser"
+              }
+            ]
+          },
+          {
+            "WeekDay": "Monday",
+            "Date": 5,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Tuesday",
+            "Date": 6,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Wednesday",
+            "Date": 7,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Thursday",
+            "Date": 8,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Friday",
+            "Date": 9,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Saturday",
+            "Date": 10,
+            "OutOfMonth": false,
+            "Events": []
+          }
+        ],
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 11,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Monday",
+            "Date": 12,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Tuesday",
+            "Date": 13,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Wednesday",
+            "Date": 14,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Thursday",
+            "Date": 15,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Friday",
+            "Date": 16,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Saturday",
+            "Date": 17,
+            "OutOfMonth": false,
+            "Events": []
+          }
+        ],
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 18,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Monday",
+            "Date": 19,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Tuesday",
+            "Date": 20,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Wednesday",
+            "Date": 21,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Thursday",
+            "Date": 22,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Friday",
+            "Date": 23,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Saturday",
+            "Date": 24,
+            "OutOfMonth": false,
+            "Events": []
+          }
+        ],
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 25,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Monday",
+            "Date": 26,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Tuesday",
+            "Date": 27,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Wednesday",
+            "Date": 28,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Thursday",
+            "Date": 29,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Friday",
+            "Date": 30,
+            "OutOfMonth": false,
+            "Events": []
+          },
+          {
+            "WeekDay": "Saturday",
+            "Date": 31,
+            "OutOfMonth": false,
+            "Events": []
+          }
+        ]
+      ]
+    }
+  ]
+}
