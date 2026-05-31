@@ -3,11 +3,105 @@ import './App.css';
 import '../Content/bootstrap.css'
 import '../Scripts/bootstrap.min.js'
 import calendarData from './Persona5RoyalCalendarInfo.json'
-function CalendarEvent({ event }) {
-    return <li className={"list-group-item arsenal-bold " + event["Type"].replaceAll(' ', '')}>{event["Title"]}</li>
+function getWindowDimensions() {
+    const { innerWidth: width, innerHeight: height } = window;
+    return {
+        width,
+        height
+    };
 }
 
-function CalendarDay({ selectedMonthIndex, selectedWeekIndex, selectedDayIndex, weekIndex, dayIndex, onCalendarDayClick }) {
+function weatherIconNameLookup(weather) {
+
+    var iconName = null;
+    switch (weather) {
+        case 'Rain':
+            iconName = "rainy";
+            break;
+        case 'Torrential Rain':
+            iconName = "thunderstorm";
+            break;
+        case 'Snow':
+            iconName = "snowflake";
+            break;
+        case 'Flu Season':
+            iconName = "sick";
+            break;
+        case 'Pollen':
+            iconName = "allergy";
+            break;
+        case 'Heat Wave':
+            iconName = "local_fire_department";
+            break;
+        case 'Tropical Night':
+            iconName = "local_fire_department";
+            break;
+        case 'Cold Wave':
+            iconName = "thermostat_arrow_down";
+            break;
+        case 'Cloudy':
+            iconName = "cloud";
+            break;
+        case 'Clear':
+            iconName = "clear_day";
+            break;
+    }
+    return iconName;
+}
+
+function WeatherIcon({ weather, windowDimensions }) {
+    var iconName = weatherIconNameLookup(weather);
+    if (windowDimensions.width <= 768) {
+        iconName = null;
+    }
+
+    return <span className="material-symbols-outlined inlineIcon" title={weather}>{iconName}</span>
+}
+
+function CalendarEvent({ windowDimensions, event }) {
+    return <li className={"list-group-item arsenal-bold calendarEventSmall " + event["Type"].replaceAll(' ', '')}>
+            {windowDimensions.width <= 1024 ? null : event["Title"]} 
+           </li>
+}
+
+function CalendarEventDetails({ event }) {
+    return (<li className={"list-group-item arsenal-bold " + event["Type"].replaceAll(' ', '')}>
+                <div className="d-flex w-100 justify-content-between">
+                    <h5 className="mb-1">{event["Title"]}</h5>
+                    <small>{event["Type"]}</small>
+                </div>
+                <p className="mb-1">{event["Details"]}</p>
+                <small>{event["Footnote"]}</small>
+            </li>)
+}
+
+function FreeTimeDetails({ day }) {
+    var headerText;
+    var detailedText;
+    if (day["DaySlot"] === "Blocked" &&
+        day["NightSlot"] === "Blocked") {
+        headerText = "Busy Day!";
+        detailedText = "Joker will have no free time.";
+    }
+    else if (day["DaySlot"] === "Blocked") {
+        headerText = "Busy Afternoon!";
+        detailedText = "Joker will only have free time at night.";
+    }
+    else if (day["NightSlot"] === "Blocked") {
+        headerText = "Busy Night!";
+        detailedText = "Joker will only have free time during the day.";
+    }
+
+    if (headerText) {
+        return <div className="mb-3">
+                <h4>{headerText}</h4>
+                <span>{detailedText}</span>
+               </div>
+    }
+    return (null)
+}
+
+function CalendarDay({ windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, weekIndex, dayIndex, onCalendarDayClick }) {
     var day = calendarData["Months"][selectedMonthIndex]["Weeks"][weekIndex][dayIndex];
     var cellClasses = "arsenal-regular ";
 
@@ -15,23 +109,52 @@ function CalendarDay({ selectedMonthIndex, selectedWeekIndex, selectedDayIndex, 
         cellClasses += "outOfMonth ";
     }
 
-    var dateNumberClasses = "calendarDateNumber "
+    var dateNumberClasses = "pe-2 "
 
     if (selectedWeekIndex === weekIndex &&
         selectedDayIndex === dayIndex) {
-        dateNumberClasses += "fs-4 boxedText libre-franklin-bold rotatedText ";
+        dateNumberClasses += "calendarDateNumberSelected boxedText libre-franklin-bold rotatedText ";
     }
     else {
-        dateNumberClasses += "fs-5 arsenal-bold ";
+        dateNumberClasses += "calendarDateNumber arsenal-bold ";
+    }
+
+    var dayOverviewClasses = "dayOverviewDiv mb-2 ";
+    if (day["DaySlot"] === "Free" &&
+        day["NightSlot"] === "Free") {
+        dayOverviewClasses += " freeTime ";
+    }
+    else if (day["DaySlot"] === "Free" &&
+        day["NightSlot"] === "Blocked") {
+        dayOverviewClasses += " freeTimeNightOnly ";
+
+    }
+    else if (day["DaySlot"] === "Blocked" &&
+        day["NightSlot"] === "Free") {
+        dayOverviewClasses += " freeTimeDayOnly ";
+
+    }
+    else if (day["DaySlot"] === "Blocked" &&
+        day["NightSlot"] === "Blocked") {
+        dayOverviewClasses += " blockedTime ";
+
     }
 
     return (
         <td className={cellClasses} onClick={onCalendarDayClick}>
-            <span className={dateNumberClasses} >{day["Date"]}</span>
+            <div className={dayOverviewClasses}>
+                <div className="ps-1">
+                    <WeatherIcon weather={day["WeatherDay"]} windowDimensions={windowDimensions}></WeatherIcon>
+                    {weatherIconNameLookup(day["WeatherDay"]) === weatherIconNameLookup(day["WeatherNight"])
+                        ? ""
+                        : < WeatherIcon weather={day["WeatherNight"]} windowDimensions={windowDimensions}></WeatherIcon>}
+                </div>
+                <span className={dateNumberClasses} >{day["Date"]}</span>
+            </div>
             {("Events" in day && day["Events"].length > 0) ?
-                <ul className="list-group fs-6" style={{ clear: "both", display: "block" }}>
+                <ul className="list-group fs-6">
                     {day["Events"].map((event) =>
-                        <CalendarEvent key={event["Title"]} event={event}></CalendarEvent>)}
+                        <CalendarEvent windowDimensions={windowDimensions} key={event["Title"]} event={event}></CalendarEvent>)}
                 </ul> : ""
             }
         </td>)
@@ -45,7 +168,7 @@ function NavBar({ selectedMonthIndex }) {
          <span className="boxedText" style={{ transform: "rotate(1deg)" }}>{month["Year"]}</span>~</h1>
 }
 
-function Calendar({ onDetailsClick, selectedMonthIndex, selectedWeekIndex, selectedDayIndex }) {
+function Calendar({ onDetailsClick, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex }) {
     function handleClick(weekIndex, dayIndex) {
         onDetailsClick(weekIndex, dayIndex);
     }
@@ -74,29 +197,43 @@ function Calendar({ onDetailsClick, selectedMonthIndex, selectedWeekIndex, selec
         <tbody>
             {calendarData["Months"][selectedMonthIndex]["Weeks"].map((week, weekIndex) =>
                 <tr key={weekIndex}>
-                    {week.map((day, dayIndex) => <CalendarDay key={dayIndex} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex} weekIndex={weekIndex} dayIndex={dayIndex} onCalendarDayClick={() => handleClick(weekIndex, dayIndex)}></CalendarDay>)}
+                    {week.map((day, dayIndex) => <CalendarDay key={dayIndex} windowDimensions={windowDimensions} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex} weekIndex={weekIndex} dayIndex={dayIndex} onCalendarDayClick={() => handleClick(weekIndex, dayIndex)}></CalendarDay>)}
                 </tr>
                 )}
         </tbody>
     </table>
 }
 
-function Details({ onClickPreviousDay, onClickNextDay, selectedMonthIndex, selectedWeekIndex, selectedDayIndex }) {
+function DetailsNavbar({ selectedDay, selectedMonthIndex, onClickNextDay, onClickPreviousDay, windowDimensions }) {
+    var dayText;
+    var monthText;
+    var month = calendarData["Months"][selectedMonthIndex];
+    if (windowDimensions.width > 768 && windowDimensions.width <= 1024) {
+        monthText = selectedDay["OutOfMonth"] ? selectedDay["OutOfMonthNum"] : month["Number"];
+        dayText = `${monthText}/${selectedDay["Date"]}`;
+    }
+    else {
+        monthText = selectedDay["OutOfMonth"] ? selectedDay["OutOfMonth"] : month["Month"];
+        dayText = `${selectedDay["WeekDay"]} ${monthText} ${selectedDay["Date"]}`;
+    }
+    return <h5 className="card-title text-center mb-4 libre-franklin-regular flexSpaceBetween">
+                <button className="btn btn-danger" onClick={onClickPreviousDay}>{"<"}</button>
+                <span>{dayText}</span>
+                <button className="btn btn-danger" onClick={onClickNextDay}>{">"}</button>
+            </h5>
+}
+
+function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex }) {
     var selectedDay = calendarData["Months"][selectedMonthIndex]["Weeks"][selectedWeekIndex][selectedDayIndex];
 
     return <div className="card details">
         <div className="card-body">
-            <h5 className="card-title text-center mb-4 libre-franklin-regular">
-                <button className="btn btn-danger me-2 float-start" onClick={onClickPreviousDay}>{"<"}</button>
-                {selectedDay["WeekDay"]}&nbsp;
-                {selectedDay["OutOfMonth"] ? selectedDay["OutOfMonth"] : calendarData["Months"][selectedMonthIndex]["Month"]}&nbsp;
-                {selectedDay["Date"]}
-                <button className="btn btn-danger ms-2 float-end" onClick={onClickNextDay}>{">"}</button>
-            </h5>
+            <DetailsNavbar selectedDay={selectedDay} selectedMonthIndex={selectedMonthIndex} onClickNextDay={onClickNextDay} onClickPreviousDay={onClickPreviousDay} windowDimensions={windowDimensions}></DetailsNavbar>
+            <FreeTimeDetails day={selectedDay}></FreeTimeDetails>
             {("Events" in selectedDay && selectedDay["Events"].length > 0) ?
                 <ul className="list-group fs-6 arsenal-regular" style={{ clear: "both", display: "block" }}>
                     {selectedDay["Events"].map((event) =>
-                        <CalendarEvent key={event["Title"]} event={event}></CalendarEvent>)}
+                        <CalendarEventDetails key={event["Title"]} event={event}></CalendarEventDetails>)}
                 </ul> : ""
             }
             </div>
@@ -108,6 +245,17 @@ export default function App() {
     const [selectedMonthIndex, setSelectedMonthIndex] = useState(0);
     const [selectedWeekIndex, setSelectedWeekIndex] = useState(0);
     const [selectedDayIndex, setSelectedDayIndex] = useState(0);
+    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
+    useEffect(() => {
+        function handleResize() {
+            setWindowDimensions(getWindowDimensions());
+        }
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     function displayDetails(weekIndex, dayIndex) {
         setSelectedWeekIndex(weekIndex);
         setSelectedDayIndex(dayIndex);
@@ -138,7 +286,7 @@ export default function App() {
 
     return (<div className="calendarLayout" data-bs-theme="dark">
         <NavBar selectedMonthIndex={selectedMonthIndex}></NavBar>
-        <Calendar onDetailsClick={displayDetails} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex}></Calendar>
-        <Details onClickPreviousDay={() => iterateSelectedDay(false)} onClickNextDay={() => iterateSelectedDay(true)} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex}></Details>
+        <Calendar onDetailsClick={displayDetails} windowDimensions={windowDimensions} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex}></Calendar>
+        <Details onClickPreviousDay={() => iterateSelectedDay(false)} windowDimensions={windowDimensions} onClickNextDay={() => iterateSelectedDay(true)} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex}></Details>
             </div>)
 }

@@ -3,47 +3,66 @@
     {
       "Year":  "2016",
       "Month": "December",
+      "Number":  12,
       "Weeks": [
         [
           {
             "WeekDay": "Sunday",
             "Date": 27,
             "OutOfMonth": "November",
+            "OutOfMonthNum": 11,
             "Events": []
           },
           {
             "WeekDay": "Monday",
             "Date": 28,
             "OutOfMonth": "November",
+            "OutOfMonthNum": 11,
             "Events": []
           },
           {
             "WeekDay": "Tuesday",
             "Date": 29,
             "OutOfMonth": "November",
+            "OutOfMonthNum": 11,
             "Events": []
           },
           {
             "WeekDay": "Wednesday",
             "Date": 30,
             "OutOfMonth": "November",
+            "OutOfMonthNum": 11,
             "Events": []
           },
           {
             "WeekDay": "Thursday",
             "Date": 1,
+            "DaySlot": "Free",
+            "NightSlot":  "Free",
             "OutOfMonth": false,
             "Events": []
           },
           {
             "WeekDay": "Friday",
             "Date": 2,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "OutOfMonth": false,
-            "Events": []
+            "Events": [
+              {
+                "Type": "Crossword",
+                "Title": "Crossword",
+                "Details": "New crossword at Leblanc! The solution is: 'INFLUENZA'"
+              }
+            ]
           },
           {
             "WeekDay": "Saturday",
             "Date": 3,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "WeatherDay": "Snow",
+            "WeatherNight": "Rain",
             "OutOfMonth": false,
             "Events": []
           }
@@ -52,47 +71,75 @@
           {
             "WeekDay": "Sunday",
             "Date": 4,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "OutOfMonth": false,
             "Events": [
               {
                 "Type": "Jazz Club",
-                "Title": "Heat Riser"
+                "Title": "Heat Riser",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Heat Riser.'",
+                "Footnote": "Increases 1 ally's Attack, Defense and Hit/Evasion for 3 turns."
               }
             ]
           },
           {
             "WeekDay": "Monday",
             "Date": 5,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "OutOfMonth": false,
             "Events": []
           },
           {
             "WeekDay": "Tuesday",
             "Date": 6,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "OutOfMonth": false,
             "Events": []
           },
           {
             "WeekDay": "Wednesday",
             "Date": 7,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "OutOfMonth": false,
-            "Events": []
+            "Events": [
+              {
+                "Type": "Crossword",
+                "Title": "Crossword",
+                "Details": "New crossword at Leblanc! The solution is: 'ILLUMINATE'"
+              }
+            ]
           },
           {
             "WeekDay": "Thursday",
             "Date": 8,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "WeatherDay": "Flu Season",
+            "WeatherNight": "Flu Season",
             "OutOfMonth": false,
             "Events": []
           },
           {
             "WeekDay": "Friday",
             "Date": 9,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "WeatherDay": "Flu Season",
+            "WeatherNight": "Flu Season",
             "OutOfMonth": false,
             "Events": []
           },
           {
             "WeekDay": "Saturday",
             "Date": 10,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "WeatherDay": "Cloudy",
+            "WeatherNight": "Rain",
             "OutOfMonth": false,
             "Events": []
           }
@@ -101,154 +148,235 @@
           {
             "WeekDay": "Sunday",
             "Date": 11,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "OutOfMonth": false,
             "Events": [
               {
                 "Type": "Jazz Club",
-                "Title": "Debilitate"
-              }]
+                "Title": "Debilitate",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Debilitate.'",
+                "Footnote": "Decreases 1 foe's Attack, Defense and Hit/Evasion for 3 turns."
+              }
+            ]
           },
           {
             "WeekDay": "Monday",
             "Date": 12,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "OutOfMonth": false,
-            "Events": []
+            "Events": [
+              {
+                "Type": "Crossword",
+                "Title": "Crossword",
+                "Details": "New crossword at Leblanc! The solution is: 'APPROVAL'"
+              }
+            ]
           },
           {
             "WeekDay": "Tuesday",
             "Date": 13,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "WeatherDay": "Rain",
+            "WeatherNight": "Cloudy",
             "OutOfMonth": false,
             "Events": []
           },
           {
             "WeekDay": "Wednesday",
             "Date": 14,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "OutOfMonth": false,
             "Events": []
           },
           {
             "WeekDay": "Thursday",
             "Date": 15,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "WeatherDay": "Snow",
+            "WeatherNight": "Clear",
             "OutOfMonth": false,
             "Events": []
           },
           {
             "WeekDay": "Friday",
             "Date": 16,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "WeatherDay": "Clear",
+            "WeatherNight": "Snow",
             "OutOfMonth": false,
             "Events": []
           },
           {
             "WeekDay": "Saturday",
             "Date": 17,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "OutOfMonth": false,
             "Events": [
               {
                 "Type": "Story",
                 "Title": "Last Call"
-              }]
+              }
+            ]
           }
         ],
         [
           {
             "WeekDay": "Sunday",
             "Date": 18,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
             "OutOfMonth": false,
-            "Events": []
+            "Events": [
+              {
+                "Type": "Story",
+                "Title": "Election"
+              }
+            ]
           },
           {
             "WeekDay": "Monday",
             "Date": 19,
+            "DaySlot": "Blocked",
+            "NightSlot": "Free",
             "OutOfMonth": false,
-            "Events": []
+            "Events": [
+              {
+                "Type": "Crossword",
+                "Title": "Crossword",
+                "Details": "New crossword at Leblanc! The solution is: 'CHRISTMAS'"
+              }
+            ]
           },
           {
             "WeekDay": "Tuesday",
             "Date": 20,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
             "OutOfMonth": false,
             "Events": [
               {
                 "Type": "Exam",
                 "Title": "Final Exams"
-              }]
+              }
+            ]
           },
           {
             "WeekDay": "Wednesday",
             "Date": 21,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
             "OutOfMonth": false,
             "Events": [
               {
                 "Type": "Exam",
                 "Title": "Final Exams"
-              }]
+              }
+            ]
           },
           {
             "WeekDay": "Thursday",
             "Date": 22,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "OutOfMonth": false,
             "Events": [
               {
                 "Type": "Exam",
                 "Title": "Final Exams"
-              }]
+              }
+            ]
           },
           {
             "WeekDay": "Friday",
             "Date": 23,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
             "OutOfMonth": false,
             "Events": []
           },
           {
             "WeekDay": "Saturday",
             "Date": 24,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "WeatherDay": "Clear",
+            "WeatherNight": "Snow",
             "OutOfMonth": false,
             "Events": [
               {
                 "Type": "Story",
                 "Title": "Mementos"
-              }]
+              },
+              {
+                "Type": "Exam",
+                "Title": "Exam Scores"
+              }
+            ]
           }
         ],
         [
           {
             "WeekDay": "Sunday",
             "Date": 25,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "WeatherDay": "Snow",
+            "WeatherNight": "Snow",
             "OutOfMonth": false,
             "Events": []
           },
           {
             "WeekDay": "Monday",
             "Date": 26,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
             "OutOfMonth": false,
             "Events": []
           },
           {
             "WeekDay": "Tuesday",
             "Date": 27,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
             "OutOfMonth": false,
             "Events": []
           },
           {
             "WeekDay": "Wednesday",
             "Date": 28,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
             "OutOfMonth": false,
             "Events": []
           },
           {
             "WeekDay": "Thursday",
             "Date": 29,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
             "OutOfMonth": false,
             "Events": []
           },
           {
             "WeekDay": "Friday",
             "Date": 30,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
             "OutOfMonth": false,
             "Events": []
           },
           {
             "WeekDay": "Saturday",
             "Date": 31,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
             "OutOfMonth": false,
             "Events": []
           }

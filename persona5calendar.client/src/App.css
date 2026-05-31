@@ -10,6 +10,35 @@
     background-color: white;
 }
 
+.dayOverviewDiv {
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    height: 30px; 
+    overflow: visible;
+}
+
+.flexSpaceBetween {
+    display: flex;
+    justify-content: space-between;
+}
+
+.freeTimeNightOnly {
+    background: linear-gradient(to right, #560d0d 50%, #3b3b3b 50%);
+}
+
+.freeTimeDayOnly {
+    background: linear-gradient(to right, #3b3b3b 50%, #560d0d 50%);
+}
+
+.freeTime {
+    background: #3b3b3b;
+}
+
+.blockedTime {
+    background: #560d0d;
+}
+
 .boxedText {
     color: white;
     background-color:black;
@@ -26,8 +55,9 @@
     transform: rotate(5deg)
 }
 
-.calendarDateNumber {
-    float: right; 
+.inlineIcon {
+    vertical-align: bottom;
+    font-size: 20px !important;
 }
 
 .selectedDay {
@@ -57,6 +87,33 @@
     }
 }
 
+.calendarDateNumber {
+    font-size: 1.25rem !important;
+}
+
+.calendarDateNumberSelected {
+    font-size: calc(1.275rem + 0.3vw) !important;
+}
+
+@media only screen and (max-width: 1024px) {
+    .inlineIcon {
+        vertical-align: middle;
+        font-size: 16px !important;
+    }
+
+    .calendarDateNumber {
+        font-size: 16px !important;
+    }
+
+    .calendarDateNumberSelected {
+        font-size: 16px !important;
+    }
+
+    .dayOverviewDiv {
+        height: 20px !important;
+    }
+}
+
 .navBar {
     grid-area: navBar;
 }
@@ -72,11 +129,12 @@
     grid-area: details;
 }
 
-.list-group {
+.calendarEventSmall {
     --bs-list-group-item-padding-x: .4rem !important;
-    --bs-list-group-item-padding-y: .25rem !important;
+    --bs-list-group-item-padding-y: 0rem !important;
     white-space: nowrap;
     overflow-x: clip;
+    min-height:10px;
 }
 
 .Exam {
@@ -89,4 +147,8 @@
 
 .JazzClub {
     background-color: purple !important;
+}
+
+.Crossword {
+    background-color: darkgoldenrod !important;
 }
