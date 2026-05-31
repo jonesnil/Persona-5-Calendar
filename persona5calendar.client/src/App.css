@@ -23,19 +23,23 @@
     justify-content: space-between;
 }
 
-.freeTimeNightOnly {
+.BlockedRestricted {
+    background: linear-gradient(to right, #560d0d 50%, #8c6723 50%);
+}
+
+.BlockedFree {
     background: linear-gradient(to right, #560d0d 50%, #3b3b3b 50%);
 }
 
-.freeTimeDayOnly {
+.FreeBlocked {
     background: linear-gradient(to right, #3b3b3b 50%, #560d0d 50%);
 }
 
-.freeTime {
+.FreeFree {
     background: #3b3b3b;
 }
 
-.blockedTime {
+.BlockedBlocked {
     background: #560d0d;
 }
 
@@ -149,6 +153,6 @@
     background-color: purple !important;
 }
 
-.Crossword {
+.Puzzle {
     background-color: darkgoldenrod !important;
 }

@@ -1,0 +1,28 @@
+{
+  "Months": [
+    {
+      "Year":  "2016",
+      "Month": "December",
+      "Number":  12,
+      "Weeks": [
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 27,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "WeatherDay": "Snow",
+            "WeatherNight": "Snow",
+            "OutOfMonth": "November",
+            "OutOfMonthNum": 11,
+            "Events": [
+              {
+                "Type": "Crossword",
+                "Title": "Crossword",
+                "Details": "New crossword at Leblanc! The solution is: 'CHRISTMAS'"
+              }]
+          }
+        ]
+    }
+  ]
+}

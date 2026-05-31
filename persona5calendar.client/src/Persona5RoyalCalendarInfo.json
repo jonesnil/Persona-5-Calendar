@@ -1,9 +1,324 @@
 {
   "Months": [
     {
-      "Year":  "2016",
+      "Year": "2016",
+      "Month": "November",
+      "Number": 11,
+      "Weeks": [
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 30,
+            "OutOfMonth": "October",
+            "OutOfMonthNum": 10,
+            "Events": []
+          },
+          {
+            "WeekDay": "Monday",
+            "OutOfMonth": "October",
+            "OutOfMonthNum": 10,
+            "Date": 31,
+            "Events": []
+          },
+          {
+            "WeekDay": "Tuesday",
+            "Date": 1,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Wednesday",
+            "Date": 2,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Thursday",
+            "Date": 3,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Friday",
+            "Date": 4,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": [
+              {
+                "Type": "Puzzle",
+                "Title": "Crossword",
+                "Details": "New crossword at Leblanc! The solution is: 'REWARD'"
+              }
+            ]
+          },
+          {
+            "WeekDay": "Saturday",
+            "Date": 5,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          }
+        ],
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 6,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": [
+              {
+                "Type": "Jazz Club",
+                "Title": "Matarunda",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Matarunda.'",
+                "Footnote": "Decreases all foes' Attack power by 40% for 3 turns."
+              }
+            ]
+          },
+          {
+            "WeekDay": "Monday",
+            "Date": 7,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Tuesday",
+            "Date": 8,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Wednesday",
+            "Date": 9,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": [
+            ]
+          },
+          {
+            "WeekDay": "Thursday",
+            "Date": 10,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Friday",
+            "Date": 11,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Saturday",
+            "Date": 12,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          }
+        ],
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 13,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "WeatherDay": "Flu Season",
+            "WeatherNight": "Flu Season",
+            "Events": [
+              {
+                "Type": "Jazz Club",
+                "Title": "Marakunda",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Marakunda.'",
+                "Footnote": "Decreases all foes' Defense by 40% for 3 turns."
+              }
+            ]
+          },
+          {
+            "WeekDay": "Monday",
+            "Date": 14,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "WeatherDay": "Flu Season",
+            "WeatherNight": "Flu Season",
+            "Events": [
+              {
+                "Type": "Puzzle",
+                "Title": "Crossword",
+                "Details": "New crossword at Leblanc! The solution is: 'BASHING'"
+              }
+            ]
+          },
+          {
+            "WeekDay": "Tuesday",
+            "Date": 15,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "WeatherDay": "Flu Season",
+            "WeatherNight": "Flu Season",
+            "Events": []
+          },
+          {
+            "WeekDay": "Wednesday",
+            "Date": 16,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "WeatherDay": "Rain",
+            "WeatherNight": "Cloudy",
+            "Events": []
+          },
+          {
+            "WeekDay": "Thursday",
+            "Date": 17,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Friday",
+            "Date": 18,
+            "DaySlot": "Blocked",
+            "NightSlot": "Restricted",
+            "Events": []
+          },
+          {
+            "WeekDay": "Saturday",
+            "Date": 19,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "Events": [
+            ]
+          }
+        ],
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 20,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "Events": [
+            ]
+          },
+          {
+            "WeekDay": "Monday",
+            "Date": 21,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "Events": [
+            ]
+          },
+          {
+            "WeekDay": "Tuesday",
+            "Date": 22,
+            "DaySlot": "Blocked",
+            "NightSlot": "Restricted",
+            "Events": [
+            ]
+          },
+          {
+            "WeekDay": "Wednesday",
+            "Date": 23,
+            "DaySlot": "Blocked",
+            "NightSlot": "Restricted",
+            "Events": [
+            ]
+          },
+          {
+            "WeekDay": "Thursday",
+            "Date": 24,
+            "DaySlot": "Blocked",
+            "NightSlot": "Restricted",
+            "Events": [
+            ]
+          },
+          {
+            "WeekDay": "Friday",
+            "Date": 25,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Saturday",
+            "Date": 26,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": [
+            ]
+          }
+        ],
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 27,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": [
+              {
+                "Type": "Jazz Club",
+                "Title": "Masukunda",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Masukunda.'",
+                "Footnote": "Decreases all foes' Hit/Evasion by 30% for 3 turns."
+              }]
+          },
+          {
+            "WeekDay": "Monday",
+            "Date": 28,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": [
+              {
+                "Type": "Puzzle",
+                "Title": "Crossword",
+                "Details": "New crossword at Leblanc! The solution is: 'CHARISMA'"
+              }]
+          },
+          {
+            "WeekDay": "Tuesday",
+            "Date": 29,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Wednesday",
+            "Date": 30,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Thursday",
+            "Date": 1,
+            "OutOfMonth": "December",
+            "OutOfMonthNum": 12,
+            "Events": []
+          },
+          {
+            "WeekDay": "Friday",
+            "Date": 2,
+            "OutOfMonth": "December",
+            "OutOfMonthNum": 12,
+            "Events": []
+          },
+          {
+            "WeekDay": "Saturday",
+            "Date": 3,
+            "OutOfMonth": "December",
+            "OutOfMonthNum": 12,
+            "Events": []
+          }
+        ]
+      ]
+    },
+    {
+      "Year": "2016",
       "Month": "December",
-      "Number":  12,
+      "Number": 12,
       "Weeks": [
         [
           {
@@ -38,8 +353,7 @@
             "WeekDay": "Thursday",
             "Date": 1,
             "DaySlot": "Free",
-            "NightSlot":  "Free",
-            "OutOfMonth": false,
+            "NightSlot": "Free",
             "Events": []
           },
           {
@@ -47,10 +361,9 @@
             "Date": 2,
             "DaySlot": "Free",
             "NightSlot": "Free",
-            "OutOfMonth": false,
             "Events": [
               {
-                "Type": "Crossword",
+                "Type": "Puzzle",
                 "Title": "Crossword",
                 "Details": "New crossword at Leblanc! The solution is: 'INFLUENZA'"
               }
@@ -63,7 +376,6 @@
             "NightSlot": "Free",
             "WeatherDay": "Snow",
             "WeatherNight": "Rain",
-            "OutOfMonth": false,
             "Events": []
           }
         ],
@@ -73,7 +385,6 @@
             "Date": 4,
             "DaySlot": "Free",
             "NightSlot": "Free",
-            "OutOfMonth": false,
             "Events": [
               {
                 "Type": "Jazz Club",
@@ -88,7 +399,6 @@
             "Date": 5,
             "DaySlot": "Free",
             "NightSlot": "Free",
-            "OutOfMonth": false,
             "Events": []
           },
           {
@@ -96,7 +406,6 @@
             "Date": 6,
             "DaySlot": "Free",
             "NightSlot": "Free",
-            "OutOfMonth": false,
             "Events": []
           },
           {
@@ -104,10 +413,9 @@
             "Date": 7,
             "DaySlot": "Free",
             "NightSlot": "Free",
-            "OutOfMonth": false,
             "Events": [
               {
-                "Type": "Crossword",
+                "Type": "Puzzle",
                 "Title": "Crossword",
                 "Details": "New crossword at Leblanc! The solution is: 'ILLUMINATE'"
               }
@@ -120,7 +428,6 @@
             "NightSlot": "Free",
             "WeatherDay": "Flu Season",
             "WeatherNight": "Flu Season",
-            "OutOfMonth": false,
             "Events": []
           },
           {
@@ -130,7 +437,6 @@
             "NightSlot": "Free",
             "WeatherDay": "Flu Season",
             "WeatherNight": "Flu Season",
-            "OutOfMonth": false,
             "Events": []
           },
           {
@@ -140,7 +446,6 @@
             "NightSlot": "Free",
             "WeatherDay": "Cloudy",
             "WeatherNight": "Rain",
-            "OutOfMonth": false,
             "Events": []
           }
         ],
@@ -150,7 +455,6 @@
             "Date": 11,
             "DaySlot": "Free",
             "NightSlot": "Free",
-            "OutOfMonth": false,
             "Events": [
               {
                 "Type": "Jazz Club",
@@ -165,10 +469,9 @@
             "Date": 12,
             "DaySlot": "Free",
             "NightSlot": "Free",
-            "OutOfMonth": false,
             "Events": [
               {
-                "Type": "Crossword",
+                "Type": "Puzzle",
                 "Title": "Crossword",
                 "Details": "New crossword at Leblanc! The solution is: 'APPROVAL'"
               }
@@ -181,7 +484,6 @@
             "NightSlot": "Free",
             "WeatherDay": "Rain",
             "WeatherNight": "Cloudy",
-            "OutOfMonth": false,
             "Events": []
           },
           {
@@ -189,7 +491,6 @@
             "Date": 14,
             "DaySlot": "Free",
             "NightSlot": "Free",
-            "OutOfMonth": false,
             "Events": []
           },
           {
@@ -199,7 +500,6 @@
             "NightSlot": "Free",
             "WeatherDay": "Snow",
             "WeatherNight": "Clear",
-            "OutOfMonth": false,
             "Events": []
           },
           {
@@ -209,7 +509,6 @@
             "NightSlot": "Free",
             "WeatherDay": "Clear",
             "WeatherNight": "Snow",
-            "OutOfMonth": false,
             "Events": []
           },
           {
@@ -217,7 +516,6 @@
             "Date": 17,
             "DaySlot": "Free",
             "NightSlot": "Free",
-            "OutOfMonth": false,
             "Events": [
               {
                 "Type": "Story",
@@ -232,7 +530,6 @@
             "Date": 18,
             "DaySlot": "Blocked",
             "NightSlot": "Blocked",
-            "OutOfMonth": false,
             "Events": [
               {
                 "Type": "Story",
@@ -245,10 +542,9 @@
             "Date": 19,
             "DaySlot": "Blocked",
             "NightSlot": "Free",
-            "OutOfMonth": false,
             "Events": [
               {
-                "Type": "Crossword",
+                "Type": "Puzzle",
                 "Title": "Crossword",
                 "Details": "New crossword at Leblanc! The solution is: 'CHRISTMAS'"
               }
@@ -259,7 +555,6 @@
             "Date": 20,
             "DaySlot": "Blocked",
             "NightSlot": "Blocked",
-            "OutOfMonth": false,
             "Events": [
               {
                 "Type": "Exam",
@@ -272,7 +567,6 @@
             "Date": 21,
             "DaySlot": "Blocked",
             "NightSlot": "Blocked",
-            "OutOfMonth": false,
             "Events": [
               {
                 "Type": "Exam",
@@ -285,7 +579,6 @@
             "Date": 22,
             "DaySlot": "Free",
             "NightSlot": "Free",
-            "OutOfMonth": false,
             "Events": [
               {
                 "Type": "Exam",
@@ -298,7 +591,6 @@
             "Date": 23,
             "DaySlot": "Blocked",
             "NightSlot": "Blocked",
-            "OutOfMonth": false,
             "Events": []
           },
           {
@@ -308,7 +600,6 @@
             "NightSlot": "Blocked",
             "WeatherDay": "Clear",
             "WeatherNight": "Snow",
-            "OutOfMonth": false,
             "Events": [
               {
                 "Type": "Story",
@@ -329,7 +620,6 @@
             "NightSlot": "Blocked",
             "WeatherDay": "Snow",
             "WeatherNight": "Snow",
-            "OutOfMonth": false,
             "Events": []
           },
           {
@@ -337,7 +627,6 @@
             "Date": 26,
             "DaySlot": "Blocked",
             "NightSlot": "Blocked",
-            "OutOfMonth": false,
             "Events": []
           },
           {
@@ -345,7 +634,6 @@
             "Date": 27,
             "DaySlot": "Blocked",
             "NightSlot": "Blocked",
-            "OutOfMonth": false,
             "Events": []
           },
           {
@@ -353,7 +641,6 @@
             "Date": 28,
             "DaySlot": "Blocked",
             "NightSlot": "Blocked",
-            "OutOfMonth": false,
             "Events": []
           },
           {
@@ -361,7 +648,6 @@
             "Date": 29,
             "DaySlot": "Blocked",
             "NightSlot": "Blocked",
-            "OutOfMonth": false,
             "Events": []
           },
           {
@@ -369,7 +655,6 @@
             "Date": 30,
             "DaySlot": "Blocked",
             "NightSlot": "Blocked",
-            "OutOfMonth": false,
             "Events": []
           },
           {
@@ -377,7 +662,6 @@
             "Date": 31,
             "DaySlot": "Blocked",
             "NightSlot": "Blocked",
-            "OutOfMonth": false,
             "Events": []
           }
         ]
