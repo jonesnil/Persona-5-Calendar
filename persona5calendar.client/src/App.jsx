@@ -2,6 +2,10 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import '../Content/bootstrap.css'
 import '../Scripts/bootstrap.min.js'
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Form from 'react-bootstrap/Form';
 import calendarData from './Persona5RoyalCalendarInfo.json'
 function getWindowDimensions() {
     const { innerWidth: width, innerHeight: height } = window;
@@ -49,6 +53,50 @@ function weatherIconNameLookup(weather) {
     return iconName;
 }
 
+function EventOptionsModal({ show, handleClose, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, setDisplayExamEvents, setDisplayJazzClubEvents, setDisplayPuzzleEvents, setDisplayStoryEvents }) {
+    return (
+        <>
+            <Modal show={show} onHide={handleClose} data-bs-theme="dark">
+                <Modal.Header closeButton className="libre-franklin-regular">
+                    <Modal.Title>Event Display Settings:</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <ListGroup className="arsenal-bold">
+                    <ListGroup.Item className="Story">
+                    <Form.Check type="checkbox" id="StoryEventsCheck" checked={displayStoryEvents}
+                        label="Display Story Events (Spoilers!)"
+                        onChange={e => {
+                        setDisplayStoryEvents(e.target.checked)
+                    }} />
+                    </ListGroup.Item>
+                    <ListGroup.Item className="Exam">
+                    <Form.Check type="checkbox" id="ExamEventsCheck" checked={displayExamEvents}
+                        label="Display Exam Events"
+                        onChange={e => {
+                            setDisplayExamEvents(e.target.checked)
+                        }} />
+                        </ListGroup.Item>
+                    <ListGroup.Item className="JazzClub">
+                    <Form.Check type="checkbox" id="JazzClubEventsCheck"checked={displayJazzClubEvents}
+                        label="Display Jazz Club Events"
+                        onChange={e => {
+                        setDisplayJazzClubEvents(e.target.checked)
+                    }} />
+                    </ListGroup.Item>
+                    <ListGroup.Item className="Puzzle">
+                    <Form.Check type="checkbox" id="PuzzleEventsCheck"checked={displayPuzzleEvents}
+                        label="Display Puzzle Events"
+                        onChange={e => {
+                            setDisplayPuzzleEvents(e.target.checked)
+                        }} />
+                    </ListGroup.Item>
+                    </ListGroup>
+                </Modal.Body>
+            </Modal>
+        </>
+    );
+}
+
 function WeatherIcon({ weather, windowDimensions }) {
     var iconName = weatherIconNameLookup(weather);
     if (windowDimensions.width <= 768) {
@@ -58,21 +106,59 @@ function WeatherIcon({ weather, windowDimensions }) {
     return <span className="material-symbols-outlined inlineIcon" title={weather}>{iconName}</span>
 }
 
-function CalendarEvent({ windowDimensions, event }) {
-    return <li className={"list-group-item arsenal-bold calendarEventSmall " + event["Type"].replaceAll(' ', '')}>
+function CalendarEvent({ windowDimensions, event, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents }) {
+    switch (event["Type"]) {
+        case 'Exam':
+            if (!displayExamEvents)
+                return null;
+            break;
+        case 'Jazz Club':
+            if (!displayJazzClubEvents)
+                return null;
+            break;
+        case 'Story':
+            if (!displayStoryEvents)
+                return null;
+            break;
+        case 'Puzzle':
+            if (!displayPuzzleEvents)
+                return null;
+            break;
+    }
+
+    return <ListGroup.Item className={"arsenal-bold calendarEventSmall " + event["Type"].replaceAll(' ', '')}>
             {windowDimensions.width <= 1024 ? null : event["Title"]} 
-           </li>
+           </ListGroup.Item>
 }
 
-function CalendarEventDetails({ event }) {
-    return (<li className={"list-group-item arsenal-bold " + event["Type"].replaceAll(' ', '')}>
+function CalendarEventDetails({ event, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents }) {
+    switch (event["Type"]) {
+        case 'Exam':
+            if (!displayExamEvents)
+                return null;
+            break;
+        case 'Jazz Club':
+            if (!displayJazzClubEvents)
+                return null;
+            break;
+        case 'Story':
+            if (!displayStoryEvents)
+                return null;
+            break;
+        case 'Puzzle':
+            if (!displayPuzzleEvents)
+                return null;
+            break;
+    }
+
+    return (<ListGroup.Item className={"arsenal-bold " + event["Type"].replaceAll(' ', '')}>
                 <div className="d-flex w-100 justify-content-between">
                     <h5 className="mb-1">{event["Title"]}</h5>
                     <small>{event["Type"]}</small>
                 </div>
                 <p className="mb-1">{event["Details"]}</p>
                 <small>{event["Footnote"]}</small>
-            </li>)
+            </ListGroup.Item>)
 }
 
 function WeeklyEventDetails({ day }) {
@@ -237,7 +323,7 @@ function FreeTimeDetails({ day }) {
     return (null)
 }
 
-function CalendarDay({ windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, weekIndex, dayIndex, onCalendarDayClick }) {
+function CalendarDay({ windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, weekIndex, dayIndex, onCalendarDayClick, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents }) {
     var day = calendarData["Months"][selectedMonthIndex]["Weeks"][weekIndex][dayIndex];
     var cellClasses = "arsenal-regular ";
 
@@ -269,30 +355,50 @@ function CalendarDay({ windowDimensions, selectedMonthIndex, selectedWeekIndex, 
                 <span className={dateNumberClasses} >{day["Date"]}</span>
             </div>
             {("Events" in day && day["Events"].length > 0) ?
-                <ul className="list-group fs-6">
+                <ListGroup className="fs-6">
                     {day["Events"].map((event) =>
-                        <CalendarEvent windowDimensions={windowDimensions} key={event["Title"]} event={event}></CalendarEvent>)}
-                </ul> : ""
+                        <CalendarEvent windowDimensions={windowDimensions} key={event["Title"]} event={event}
+                            displayExamEvents={displayExamEvents}
+                            displayStoryEvents={displayStoryEvents}
+                            displayJazzClubEvents={displayJazzClubEvents}
+                            displayPuzzleEvents={displayPuzzleEvents}></CalendarEvent>)}
+                </ListGroup> : ""
             }
         </td>)
 }
 
-function NavBar({ onClickPreviousMonth, onClickNextMonth, selectedMonthIndex }) {
+function NavBar({ onClickPreviousMonth, onClickNextMonth, selectedMonthIndex, windowDimensions, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, setDisplayExamEvents, setDisplayJazzClubEvents, setDisplayPuzzleEvents, setDisplayStoryEvents }) {
     var month = calendarData["Months"][selectedMonthIndex];
+    const [show, setShow] = useState(false);
 
-    return <h1 className="navBar text-center libre-franklin-bold">
-        <button className="btn btn-dark me-2" onClick={onClickPreviousMonth}>
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    return <h1 className="navBar text-center libre-franklin-bold" style={{ display: "flex", justifyContent: "space-between" }}>
+        <span className="boxedText ms-2" style={{ transform: "rotate(1deg)" }}>{windowDimensions.width <= 768 ? "" : "P5R Planner" }</span>
+        <div>
+        <Button variant="dark" className="me-2" onClick={onClickPreviousMonth}>
             <span className="material-symbols-outlined">line_start_arrow_notch</span>
-        </button>
-         <span className="boxedText" style={{ transform: "rotate(-2deg)" }}>{month["Month"]}</span>&nbsp;
+            </Button>
+            <span className="boxedText" style={{ transform: "rotate(-2deg)" }}>{(windowDimensions.width <= 768 && month["Month"].length >= 4) ? month["Month"].substring(0, 3) + "." : month["Month"]}</span>&nbsp;
         <span className="boxedText" style={{ transform: "rotate(1deg)" }}>{month["Year"]}</span>
-        <button className="btn btn-dark ms-2" onClick={onClickNextMonth}>
+        <Button variant="dark" className="ms-2" onClick={onClickNextMonth}>
          <span className="material-symbols-outlined">line_end_arrow_notch</span>
-        </button>
+            </Button>
+        </div>
+        <div></div>
+        <Button variant="dark" className="me-2 mt-1" onClick={handleShow}>
+            <span className="material-symbols-outlined">settings</span>
+        </Button>
+        <EventOptionsModal show={show} handleClose={handleClose}
+            displayExamEvents={displayExamEvents} setDisplayExamEvents={setDisplayExamEvents}
+            displayStoryEvents={displayStoryEvents} setDisplayStoryEvents={setDisplayStoryEvents}
+            displayJazzClubEvents={displayJazzClubEvents} setDisplayJazzClubEvents={setDisplayJazzClubEvents}
+            displayPuzzleEvents={displayPuzzleEvents} setDisplayPuzzleEvents={setDisplayPuzzleEvents} ></EventOptionsModal>
         </h1>
 }
 
-function Calendar({ onDetailsClick, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex }) {
+function Calendar({ onDetailsClick, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents }) {
     function handleClick(weekIndex, dayIndex) {
         onDetailsClick(weekIndex, dayIndex);
     }
@@ -321,7 +427,11 @@ function Calendar({ onDetailsClick, windowDimensions, selectedMonthIndex, select
         <tbody>
             {calendarData["Months"][selectedMonthIndex]["Weeks"].map((week, weekIndex) =>
                 <tr key={weekIndex}>
-                    {week.map((day, dayIndex) => <CalendarDay key={dayIndex} windowDimensions={windowDimensions} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex} weekIndex={weekIndex} dayIndex={dayIndex} onCalendarDayClick={() => handleClick(weekIndex, dayIndex)}></CalendarDay>)}
+                    {week.map((day, dayIndex) => <CalendarDay key={dayIndex} windowDimensions={windowDimensions} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex} weekIndex={weekIndex} dayIndex={dayIndex} onCalendarDayClick={() => handleClick(weekIndex, dayIndex)}
+                        displayExamEvents={displayExamEvents}
+                        displayStoryEvents={displayStoryEvents}
+                        displayJazzClubEvents={displayJazzClubEvents}
+                        displayPuzzleEvents={displayPuzzleEvents}></CalendarDay>)}
                 </tr>
                 )}
         </tbody>
@@ -340,17 +450,17 @@ function DetailsNavbar({ day, month, onClickNextDay, onClickPreviousDay, windowD
         dayText = `${day["WeekDay"]} ${monthText} ${day["Date"]}`;
     }
     return <h5 className="card-title text-center mb-4 libre-franklin-regular flexSpaceBetween">
-                <button className="btn btn-danger" onClick={onClickPreviousDay}>
+                <Button variant="danger" onClick={onClickPreviousDay}>
                     <span className="material-symbols-outlined">line_start_arrow_notch</span>
-                </button>
+                </Button>
                 <span>{dayText}</span>
-                <button className="btn btn-danger" onClick={onClickNextDay}>
+                <Button variant="danger" onClick={onClickNextDay}>
                     <span className="material-symbols-outlined">line_end_arrow_notch</span>
-                </button>
+                </Button>
             </h5>
 }
 
-function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex }) {
+function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents }) {
     var selectedMonth = calendarData["Months"][selectedMonthIndex];
     var selectedDay = calendarData["Months"][selectedMonthIndex]["Weeks"][selectedWeekIndex][selectedDayIndex];
 
@@ -377,10 +487,14 @@ function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selecte
             <WeatherDetails day={selectedDay} dayTime={false}></WeatherDetails>
             <FreeTimeDetails day={selectedDay}></FreeTimeDetails>
             {("Events" in selectedDay && selectedDay["Events"].length > 0) ?
-                <ul className="list-group fs-6 arsenal-regular mb-2" style={{ clear: "both", display: "block" }}>
+                <ListGroup className="fs-6 arsenal-regular mb-2" style={{ clear: "both", display: "block" }}>
                     {selectedDay["Events"].map((event) =>
-                        <CalendarEventDetails key={event["Title"]} event={event}></CalendarEventDetails>)}
-                </ul> : ""
+                        <CalendarEventDetails key={event["Title"]} event={event}
+                            displayExamEvents={displayExamEvents}
+                            displayStoryEvents = { displayStoryEvents }
+                            displayJazzClubEvents = { displayJazzClubEvents }
+                            displayPuzzleEvents = { displayPuzzleEvents } ></CalendarEventDetails>)}
+                </ListGroup> : ""
             }
             <WeeklyEventDetails day={selectedDay}></WeeklyEventDetails>
             </div>
@@ -397,6 +511,12 @@ export default function App() {
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
     const [backPressed, setBackPressed] = useState(false);
     const [forwardPressed, setForwardPressed] = useState(false);
+
+
+    const [displayStoryEvents, setDisplayStoryEvents] = useState(false);
+    const [displayExamEvents, setDisplayExamEvents] = useState(true);
+    const [displayJazzClubEvents, setDisplayJazzClubEvents] = useState(true);
+    const [displayPuzzleEvents, setDisplayPuzzleEvents] = useState(true);
 
     useEffect(() => {
         const handleKeyDown = (event) => {
@@ -523,8 +643,23 @@ export default function App() {
     }
 
     return (<div className="calendarLayout" data-bs-theme="dark">
-        <NavBar onClickPreviousMonth={() => iterateSelectedMonthButtonClick(false)} onClickNextMonth={() => iterateSelectedMonthButtonClick(true)} selectedMonthIndex={selectedMonthIndex}></NavBar>
-        <Calendar onDetailsClick={displayDetails} windowDimensions={windowDimensions} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex}></Calendar>
-        <Details onClickPreviousDay={() => iterateSelectedDay(false)} windowDimensions={windowDimensions} onClickNextDay={() => iterateSelectedDay(true)} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex}></Details>
+        <NavBar onClickPreviousMonth={() => iterateSelectedMonthButtonClick(false)}
+            onClickNextMonth={() => iterateSelectedMonthButtonClick(true)}
+            selectedMonthIndex={selectedMonthIndex}
+            windowDimensions={windowDimensions}
+            displayExamEvents={displayExamEvents} setDisplayExamEvents={setDisplayExamEvents}
+            displayStoryEvents={displayStoryEvents} setDisplayStoryEvents={setDisplayStoryEvents}
+            displayJazzClubEvents={displayJazzClubEvents} setDisplayJazzClubEvents={setDisplayJazzClubEvents}
+            displayPuzzleEvents={displayPuzzleEvents} setDisplayPuzzleEvents={setDisplayPuzzleEvents}        ></NavBar>
+        <Calendar onDetailsClick={displayDetails} windowDimensions={windowDimensions} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex}
+            displayExamEvents={displayExamEvents}
+            displayStoryEvents={displayStoryEvents}
+            displayJazzClubEvents={displayJazzClubEvents}
+            displayPuzzleEvents={displayPuzzleEvents}></Calendar>
+        <Details onClickPreviousDay={() => iterateSelectedDay(false)} windowDimensions={windowDimensions} onClickNextDay={() => iterateSelectedDay(true)} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex}
+            displayExamEvents={displayExamEvents}
+            displayStoryEvents={displayStoryEvents}
+            displayJazzClubEvents={displayJazzClubEvents}
+            displayPuzzleEvents={displayPuzzleEvents}></Details>
             </div>)
 }
