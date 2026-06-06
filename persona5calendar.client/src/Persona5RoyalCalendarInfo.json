@@ -2,6 +2,393 @@
   "Months": [
     {
       "Year": "2016",
+      "Month": "October",
+      "Number": 10,
+      "Weeks": [
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 25,
+            "OutOfMonth": "September",
+            "OutOfMonthNum": 9,
+            "Events": []
+          },
+          {
+            "WeekDay": "Monday",
+            "OutOfMonth": "September",
+            "OutOfMonthNum": 9,
+            "Date": 26,
+            "Events": []
+          },
+          {
+            "WeekDay": "Tuesday",
+            "OutOfMonth": "September",
+            "OutOfMonthNum": 9,
+            "Date": 27,
+            "Events": []
+          },
+          {
+            "WeekDay": "Wednesday",
+            "OutOfMonth": "September",
+            "OutOfMonthNum": 9,
+            "Date": 28,
+            "Events": []
+          },
+          {
+            "WeekDay": "Thursday",
+            "OutOfMonth": "September",
+            "OutOfMonthNum": 9,
+            "Date": 29,
+            "Events": []
+          },
+          {
+            "WeekDay": "Friday",
+            "OutOfMonth": "September",
+            "OutOfMonthNum": 9,
+            "Date": 30,
+            "Events": [
+            ]
+          },
+          {
+            "WeekDay": "Saturday",
+            "Date": 1,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          }
+        ],
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 2,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": [
+              {
+                "Type": "Jazz Club",
+                "Title": "Tetrakarn",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Tetrakarn.'",
+                "Footnote": "Erects a shield on 1 ally to repel 1 (non-Almighty) Physical or Gun attack."
+              }]
+          },
+          {
+            "WeekDay": "Monday",
+            "Date": 3,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "Events": []
+          },
+          {
+            "WeekDay": "Tuesday",
+            "Date": 4,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Wednesday",
+            "Date": 5,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "WeatherDay": "Clear",
+            "WeatherNight": "Rain",
+            "Events": [
+            ]
+          },
+          {
+            "WeekDay": "Thursday",
+            "Date": 6,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Friday",
+            "Date": 7,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Saturday",
+            "Date": 8,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          }
+        ],
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 9,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": [
+              {
+                "Type": "Jazz Club",
+                "Title": "Matarukaja",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Matarukaja.'",
+                "Footnote": "Increases party's Attack power by 40% for 3 turns."
+              }
+            ]
+          },
+          {
+            "WeekDay": "Monday",
+            "Date": 10,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": [
+            ]
+          },
+          {
+            "WeekDay": "Tuesday",
+            "Date": 11,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "Events": []
+          },
+          {
+            "WeekDay": "Wednesday",
+            "Date": 12,
+            "DaySlot": "Blocked",
+            "NightSlot": "Restricted",
+            "Events": []
+          },
+          {
+            "WeekDay": "Thursday",
+            "Date": 13,
+            "DaySlot": "Blocked",
+            "NightSlot": "Restricted",
+            "Events": []
+          },
+          {
+            "WeekDay": "Friday",
+            "Date": 14,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "WeatherDay": "Rain",
+            "WeatherNight": "Cloudy",
+            "Events": []
+          },
+          {
+            "WeekDay": "Saturday",
+            "Date": 15,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": [
+            ]
+          }
+        ],
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 16,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": [
+              {
+                "Type": "Jazz Club",
+                "Title": "Marakukuja",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Marakukuja.'",
+                "Footnote": "Increases party's Defense by 40% for 3 turns."
+              }
+            ]
+          },
+          {
+            "WeekDay": "Monday",
+            "Date": 17,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "WeatherDay": "Rain",
+            "WeatherNight": "Rain",
+            "Events": [
+              {
+                "Type": "Exam",
+                "Title": "Midterm Exams"
+              }
+            ]
+          },
+          {
+            "WeekDay": "Tuesday",
+            "Date": 18,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "Events": [
+              {
+                "Type": "Exam",
+                "Title": "Midterm Exams"
+              }
+            ]
+          },
+          {
+            "WeekDay": "Wednesday",
+            "Date": 19,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "Events": [
+              {
+                "Type": "Exam",
+                "Title": "Midterm Exams"
+              }
+            ]
+          },
+          {
+            "WeekDay": "Thursday",
+            "Date": 20,
+            "DaySlot": "Blocked",
+            "NightSlot": "Restricted",
+            "Events": [
+              {
+                "Type": "Exam",
+                "Title": "Midterm Exams"
+              }
+            ]
+          },
+          {
+            "WeekDay": "Friday",
+            "Date": 21,
+            "DaySlot": "Blocked",
+            "NightSlot": "Restricted",
+            "Events": []
+          },
+          {
+            "WeekDay": "Saturday",
+            "Date": 22,
+            "DaySlot": "Blocked",
+            "NightSlot": "Free",
+            "Events": [
+            ]
+          }
+        ],
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 23,
+            "DaySlot": "Blocked",
+            "NightSlot": "Free",
+            "Events": [
+              {
+                "Type": "Jazz Club",
+                "Title": "Masukukaja",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Masukukaja.'",
+                "Footnote": "Increases party's Hit/Evasion by 30% for 3 turns."
+              }
+            ]
+          },
+          {
+            "WeekDay": "Monday",
+            "Date": 24,
+            "DaySlot": "Blocked",
+            "NightSlot": "Free",
+            "Events": [
+              {
+                "Type": "Exam",
+                "Title": "Exam Scores"
+              }
+            ]
+          },
+          {
+            "WeekDay": "Tuesday",
+            "Date": 25,
+            "DaySlot": "Blocked",
+            "NightSlot": "Restricted",
+            "Events": []
+          },
+          {
+            "WeekDay": "Wednesday",
+            "Date": 26,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "WeatherDay": "Clear",
+            "WeatherNight": "Rain",
+            "Events": []
+          },
+          {
+            "WeekDay": "Thursday",
+            "Date": 27,
+            "DaySlot": "Blocked",
+            "NightSlot": "Restricted",
+            "Events": []
+          },
+          {
+            "WeekDay": "Friday",
+            "Date": 28,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "Events": []
+          },
+          {
+            "WeekDay": "Saturday",
+            "Date": 29,
+            "DaySlot": "Blocked",
+            "NightSlot": "Restricted",
+            "Events": []
+          }
+        ],
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 30,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": [
+              {
+                "Type": "Jazz Club",
+                "Title": "Makarakarn",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Makarakarn.'",
+                "Footnote": "Erects a shield on 1 ally to repel 1 (non-Almighty) magical attack."
+              }
+            ]
+          },
+          {
+            "WeekDay": "Monday",
+            "Date": 31,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": [
+            ]
+          },
+          {
+            "WeekDay": "Tuesday",
+            "Date": 1,
+            "OutOfMonth": "November",
+            "OutOfMonthNum": 11,
+            "Events": []
+          },
+          {
+            "WeekDay": "Wednesday",
+            "Date": 2,
+            "OutOfMonth": "November",
+            "OutOfMonthNum": 11,
+            "Events": []
+          },
+          {
+            "WeekDay": "Thursday",
+            "Date": 3,
+            "OutOfMonth": "November",
+            "OutOfMonthNum": 11,
+            "Events": []
+          },
+          {
+            "WeekDay": "Friday",
+            "Date": 4,
+            "OutOfMonth": "November",
+            "OutOfMonthNum": 11,
+            "Events": []
+          },
+          {
+            "WeekDay": "Saturday",
+            "Date": 5,
+            "OutOfMonth": "November",
+            "OutOfMonthNum": 11,
+            "Events": []
+          }
+        ]
+        
+      ]
+    },
+    {
+      "Year": "2016",
       "Month": "November",
       "Number": 11,
       "Weeks": [
@@ -263,7 +650,8 @@
                 "Title": "Masukunda",
                 "Details": "Taking a party member to the Jazz Club will teach them 'Masukunda.'",
                 "Footnote": "Decreases all foes' Hit/Evasion by 30% for 3 turns."
-              }]
+              }
+            ]
           },
           {
             "WeekDay": "Monday",
@@ -275,7 +663,8 @@
                 "Type": "Puzzle",
                 "Title": "Crossword",
                 "Details": "New crossword at Leblanc! The solution is: 'CHARISMA'"
-              }]
+              }
+            ]
           },
           {
             "WeekDay": "Tuesday",
