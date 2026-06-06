@@ -676,15 +676,13 @@
             "WeekDay": "Sunday",
             "Date": 30,
             "OutOfMonth": "October",
-            "OutOfMonthNum": 10,
-            "Events": []
+            "OutOfMonthNum": 10
           },
           {
             "WeekDay": "Monday",
-            "OutOfMonth": "October",
-            "OutOfMonthNum": 10,
             "Date": 31,
-            "Events": []
+            "OutOfMonth": "October",
+            "OutOfMonthNum": 10
           },
           {
             "WeekDay": "Tuesday",
@@ -716,7 +714,8 @@
               {
                 "Type": "Puzzle",
                 "Title": "Crossword",
-                "Details": "New crossword at Leblanc! The solution is: 'REWARD'"
+                "Footnote": "REWARD",
+                "Details": "New crossword at Leblanc! The solution is: 'REWARD.'"
               }
             ]
           },
@@ -738,8 +737,8 @@
               {
                 "Type": "Jazz Club",
                 "Title": "Matarunda",
-                "Details": "Taking a party member to the Jazz Club will teach them 'Matarunda.'",
-                "Footnote": "Decreases all foes' Attack power by 40% for 3 turns."
+                "Footnote": "Decreases all foes' Attack power by 40% for 3 turns.",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Matarunda.'"
               }
             ]
           },
@@ -762,8 +761,7 @@
             "Date": 9,
             "DaySlot": "Free",
             "NightSlot": "Free",
-            "Events": [
-            ]
+            "Events": []
           },
           {
             "WeekDay": "Thursday",
@@ -791,50 +789,51 @@
           {
             "WeekDay": "Sunday",
             "Date": 13,
-            "DaySlot": "Free",
-            "NightSlot": "Free",
             "WeatherDay": "Flu Season",
             "WeatherNight": "Flu Season",
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "Events": [
               {
                 "Type": "Jazz Club",
                 "Title": "Marakunda",
-                "Details": "Taking a party member to the Jazz Club will teach them 'Marakunda.'",
-                "Footnote": "Decreases all foes' Defense by 40% for 3 turns."
+                "Footnote": "Decreases all foes' Defense by 40% for 3 turns.",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Marakunda.'"
               }
             ]
           },
           {
             "WeekDay": "Monday",
             "Date": 14,
-            "DaySlot": "Free",
-            "NightSlot": "Free",
             "WeatherDay": "Flu Season",
             "WeatherNight": "Flu Season",
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "Events": [
               {
                 "Type": "Puzzle",
                 "Title": "Crossword",
-                "Details": "New crossword at Leblanc! The solution is: 'BASHING'"
+                "Footnote": "BASHING",
+                "Details": "New crossword at Leblanc! The solution is: 'BASHING.'"
               }
             ]
           },
           {
             "WeekDay": "Tuesday",
             "Date": 15,
-            "DaySlot": "Free",
-            "NightSlot": "Free",
             "WeatherDay": "Flu Season",
             "WeatherNight": "Flu Season",
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "Events": []
           },
           {
             "WeekDay": "Wednesday",
             "Date": 16,
-            "DaySlot": "Free",
-            "NightSlot": "Free",
             "WeatherDay": "Rain",
             "WeatherNight": "Cloudy",
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "Events": []
           },
           {
@@ -856,8 +855,7 @@
             "Date": 19,
             "DaySlot": "Blocked",
             "NightSlot": "Blocked",
-            "Events": [
-            ]
+            "Events": []
           }
         ],
         [
@@ -866,40 +864,35 @@
             "Date": 20,
             "DaySlot": "Blocked",
             "NightSlot": "Blocked",
-            "Events": [
-            ]
+            "Events": []
           },
           {
             "WeekDay": "Monday",
             "Date": 21,
             "DaySlot": "Blocked",
             "NightSlot": "Blocked",
-            "Events": [
-            ]
+            "Events": []
           },
           {
             "WeekDay": "Tuesday",
             "Date": 22,
             "DaySlot": "Blocked",
             "NightSlot": "Restricted",
-            "Events": [
-            ]
+            "Events": []
           },
           {
             "WeekDay": "Wednesday",
             "Date": 23,
             "DaySlot": "Blocked",
             "NightSlot": "Restricted",
-            "Events": [
-            ]
+            "Events": []
           },
           {
             "WeekDay": "Thursday",
             "Date": 24,
             "DaySlot": "Blocked",
             "NightSlot": "Restricted",
-            "Events": [
-            ]
+            "Events": []
           },
           {
             "WeekDay": "Friday",
@@ -913,8 +906,7 @@
             "Date": 26,
             "DaySlot": "Free",
             "NightSlot": "Free",
-            "Events": [
-            ]
+            "Events": []
           }
         ],
         [
@@ -927,8 +919,8 @@
               {
                 "Type": "Jazz Club",
                 "Title": "Masukunda",
-                "Details": "Taking a party member to the Jazz Club will teach them 'Masukunda.'",
-                "Footnote": "Decreases all foes' Hit/Evasion by 30% for 3 turns."
+                "Footnote": "Decreases all foes' Hit/Evasion by 30% for 3 turns.",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Masukunda.'"
               }
             ]
           },
@@ -941,7 +933,8 @@
               {
                 "Type": "Puzzle",
                 "Title": "Crossword",
-                "Details": "New crossword at Leblanc! The solution is: 'CHARISMA'"
+                "Footnote": "CHARISMA",
+                "Details": "New crossword at Leblanc! The solution is: 'CHARISMA.'"
               }
             ]
           },
@@ -963,22 +956,19 @@
             "WeekDay": "Thursday",
             "Date": 1,
             "OutOfMonth": "December",
-            "OutOfMonthNum": 12,
-            "Events": []
+            "OutOfMonthNum": 12
           },
           {
             "WeekDay": "Friday",
             "Date": 2,
             "OutOfMonth": "December",
-            "OutOfMonthNum": 12,
-            "Events": []
+            "OutOfMonthNum": 12
           },
           {
             "WeekDay": "Saturday",
             "Date": 3,
             "OutOfMonth": "December",
-            "OutOfMonthNum": 12,
-            "Events": []
+            "OutOfMonthNum": 12
           }
         ]
       ]
