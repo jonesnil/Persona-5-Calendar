@@ -157,6 +157,9 @@ function CalendarEventDetails({ event, displayExamEvents, displayJazzClubEvents,
                     <small>{event["Type"]}</small>
                 </div>
                 <p className="mb-1">{event["Details"]}</p>
+                <ListGroup>
+                {event["ListDetails"] ? event["ListDetails"].map((listItem, index) => <ListGroup.Item key={index}>{listItem}</ListGroup.Item>) : ""}
+                </ListGroup>
                 <small>{event["Footnote"]}</small>
             </ListGroup.Item>)
 }
