@@ -2,6 +2,302 @@
   "Months": [
     {
       "Year": "2016",
+      "Month": "September",
+      "Number": 9,
+      "Weeks": [
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 28,
+            "OutOfMonth": "August",
+            "OutOfMonthNum": 8
+          },
+          {
+            "WeekDay": "Monday",
+            "Date": 29,
+            "OutOfMonth": "August",
+            "OutOfMonthNum": 8
+          },
+          {
+            "WeekDay": "Tuesday",
+            "Date": 30,
+            "OutOfMonth": "August",
+            "OutOfMonthNum": 8
+          },
+          {
+            "WeekDay": "Wednesday",
+            "Date": 31,
+            "OutOfMonth": "August",
+            "OutOfMonthNum": 8
+          },
+          {
+            "WeekDay": "Thursday",
+            "Date": 1,
+            "DaySlot": "Blocked",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Friday",
+            "Date": 2,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": [
+              {
+                "Type": "Puzzle",
+                "Title": "Crossword",
+                "Footnote": "TYPHOON",
+                "Details": "New crossword at Leblanc! The solution is: 'TYPHOON.'"
+              }
+            ]
+          },
+          {
+            "WeekDay": "Saturday",
+            "Date": 3,
+            "DaySlot": "Blocked",
+            "NightSlot": "Free",
+            "Events": []
+          }
+        ],
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 4,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": [
+              {
+                "Type": "Jazz Club",
+                "Title": "Charge",
+                "Footnote": "Multiplies user's next Physical or Gun attack damage by 2.5.",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Charge.'"
+              }
+            ]
+          },
+          {
+            "WeekDay": "Monday",
+            "Date": 5,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Tuesday",
+            "Date": 6,
+            "DaySlot": "Free",
+            "NightSlot": "Blocked",
+            "Events": []
+          },
+          {
+            "WeekDay": "Wednesday",
+            "Date": 7,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "Events": []
+          },
+          {
+            "WeekDay": "Thursday",
+            "Date": 8,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "Events": []
+          },
+          {
+            "WeekDay": "Friday",
+            "Date": 9,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "Events": []
+          },
+          {
+            "WeekDay": "Saturday",
+            "Date": 10,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "Events": []
+          }
+        ],
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 11,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "Events": []
+          },
+          {
+            "WeekDay": "Monday",
+            "Date": 12,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "Events": []
+          },
+          {
+            "WeekDay": "Tuesday",
+            "Date": 13,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "Events": []
+          },
+          {
+            "WeekDay": "Wednesday",
+            "Date": 14,
+            "WeatherDay": "Clear",
+            "WeatherNight": "Rain",
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "Events": []
+          },
+          {
+            "WeekDay": "Thursday",
+            "Date": 15,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "Events": []
+          },
+          {
+            "WeekDay": "Friday",
+            "Date": 16,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "Events": []
+          },
+          {
+            "WeekDay": "Saturday",
+            "Date": 17,
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
+            "Events": []
+          }
+        ],
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 18,
+            "DaySlot": "Blocked",
+            "NightSlot": "Restricted",
+            "Events": []
+          },
+          {
+            "WeekDay": "Monday",
+            "Date": 19,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": [
+              {
+                "Type": "Puzzle",
+                "Title": "Crossword",
+                "Footnote": "FESTIVAL",
+                "Details": "New crossword at Leblanc! The solution is: 'FESTIVAL.'"
+              }
+            ]
+          },
+          {
+            "WeekDay": "Tuesday",
+            "Date": 20,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Wednesday",
+            "Date": 21,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Thursday",
+            "Date": 22,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Friday",
+            "Date": 23,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Saturday",
+            "Date": 24,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          }
+        ],
+        [
+          {
+            "WeekDay": "Sunday",
+            "Date": 25,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": [
+              {
+                "Type": "Jazz Club",
+                "Title": "Concentrate",
+                "Footnote": "Multiplies user's next magical attack damage by 2.5.",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Concentrate.'"
+              }
+            ]
+          },
+          {
+            "WeekDay": "Monday",
+            "Date": 26,
+            "WeatherDay": "Cloudy",
+            "WeatherNight": "Rain",
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Tuesday",
+            "Date": 27,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Wednesday",
+            "Date": 28,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": [
+              {
+                "Type": "Puzzle",
+                "Title": "Crossword",
+                "Footnote": "RANKING",
+                "Details": "New crossword at Leblanc! The solution is: 'RANKING.'"
+              }
+            ]
+          },
+          {
+            "WeekDay": "Thursday",
+            "Date": 29,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Friday",
+            "Date": 30,
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
+          },
+          {
+            "WeekDay": "Saturday",
+            "Date": 1,
+            "OutOfMonth": "October",
+            "OutOfMonthNum": 10
+          }
+        ]
+      ]
+    },
+    {
+      "Year": "2016",
       "Month": "October",
       "Number": 10,
       "Weeks": [
@@ -10,44 +306,37 @@
             "WeekDay": "Sunday",
             "Date": 25,
             "OutOfMonth": "September",
-            "OutOfMonthNum": 9,
-            "Events": []
+            "OutOfMonthNum": 9
           },
           {
             "WeekDay": "Monday",
-            "OutOfMonth": "September",
-            "OutOfMonthNum": 9,
             "Date": 26,
-            "Events": []
+            "OutOfMonth": "September",
+            "OutOfMonthNum": 9
           },
           {
             "WeekDay": "Tuesday",
-            "OutOfMonth": "September",
-            "OutOfMonthNum": 9,
             "Date": 27,
-            "Events": []
+            "OutOfMonth": "September",
+            "OutOfMonthNum": 9
           },
           {
             "WeekDay": "Wednesday",
-            "OutOfMonth": "September",
-            "OutOfMonthNum": 9,
             "Date": 28,
-            "Events": []
+            "OutOfMonth": "September",
+            "OutOfMonthNum": 9
           },
           {
             "WeekDay": "Thursday",
-            "OutOfMonth": "September",
-            "OutOfMonthNum": 9,
             "Date": 29,
-            "Events": []
+            "OutOfMonth": "September",
+            "OutOfMonthNum": 9
           },
           {
             "WeekDay": "Friday",
-            "OutOfMonth": "September",
-            "OutOfMonthNum": 9,
             "Date": 30,
-            "Events": [
-            ]
+            "OutOfMonth": "September",
+            "OutOfMonthNum": 9
           },
           {
             "WeekDay": "Saturday",
@@ -67,9 +356,10 @@
               {
                 "Type": "Jazz Club",
                 "Title": "Tetrakarn",
-                "Details": "Taking a party member to the Jazz Club will teach them 'Tetrakarn.'",
-                "Footnote": "Erects a shield on 1 ally to repel 1 (non-Almighty) Physical or Gun attack."
-              }]
+                "Footnote": "Erects a shield on 1 ally to repel 1 (non-Almighty) Physical or Gun attack.",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Tetrakarn.'"
+              }
+            ]
           },
           {
             "WeekDay": "Monday",
@@ -88,12 +378,11 @@
           {
             "WeekDay": "Wednesday",
             "Date": 5,
-            "DaySlot": "Free",
-            "NightSlot": "Free",
             "WeatherDay": "Clear",
             "WeatherNight": "Rain",
-            "Events": [
-            ]
+            "DaySlot": "Free",
+            "NightSlot": "Free",
+            "Events": []
           },
           {
             "WeekDay": "Thursday",
@@ -127,8 +416,8 @@
               {
                 "Type": "Jazz Club",
                 "Title": "Matarukaja",
-                "Details": "Taking a party member to the Jazz Club will teach them 'Matarukaja.'",
-                "Footnote": "Increases party's Attack power by 40% for 3 turns."
+                "Footnote": "Increases party's Attack power by 40% for 3 turns.",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Matarukaja.'"
               }
             ]
           },
@@ -137,8 +426,7 @@
             "Date": 10,
             "DaySlot": "Free",
             "NightSlot": "Free",
-            "Events": [
-            ]
+            "Events": []
           },
           {
             "WeekDay": "Tuesday",
@@ -164,10 +452,10 @@
           {
             "WeekDay": "Friday",
             "Date": 14,
-            "DaySlot": "Free",
-            "NightSlot": "Free",
             "WeatherDay": "Rain",
             "WeatherNight": "Cloudy",
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "Events": []
           },
           {
@@ -175,8 +463,7 @@
             "Date": 15,
             "DaySlot": "Free",
             "NightSlot": "Free",
-            "Events": [
-            ]
+            "Events": []
           }
         ],
         [
@@ -189,18 +476,18 @@
               {
                 "Type": "Jazz Club",
                 "Title": "Marakukuja",
-                "Details": "Taking a party member to the Jazz Club will teach them 'Marakukuja.'",
-                "Footnote": "Increases party's Defense by 40% for 3 turns."
+                "Footnote": "Increases party's Defense by 40% for 3 turns.",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Marakukuja.'"
               }
             ]
           },
           {
             "WeekDay": "Monday",
             "Date": 17,
-            "DaySlot": "Blocked",
-            "NightSlot": "Blocked",
             "WeatherDay": "Rain",
             "WeatherNight": "Rain",
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
             "Events": [
               {
                 "Type": "Exam",
@@ -256,8 +543,7 @@
             "Date": 22,
             "DaySlot": "Blocked",
             "NightSlot": "Free",
-            "Events": [
-            ]
+            "Events": []
           }
         ],
         [
@@ -270,8 +556,8 @@
               {
                 "Type": "Jazz Club",
                 "Title": "Masukukaja",
-                "Details": "Taking a party member to the Jazz Club will teach them 'Masukukaja.'",
-                "Footnote": "Increases party's Hit/Evasion by 30% for 3 turns."
+                "Footnote": "Increases party's Hit/Evasion by 30% for 3 turns.",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Masukukaja.'"
               }
             ]
           },
@@ -297,10 +583,10 @@
           {
             "WeekDay": "Wednesday",
             "Date": 26,
-            "DaySlot": "Blocked",
-            "NightSlot": "Blocked",
             "WeatherDay": "Clear",
             "WeatherNight": "Rain",
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
             "Events": []
           },
           {
@@ -335,8 +621,8 @@
               {
                 "Type": "Jazz Club",
                 "Title": "Makarakarn",
-                "Details": "Taking a party member to the Jazz Club will teach them 'Makarakarn.'",
-                "Footnote": "Erects a shield on 1 ally to repel 1 (non-Almighty) magical attack."
+                "Footnote": "Erects a shield on 1 ally to repel 1 (non-Almighty) magical attack.",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Makarakarn.'"
               }
             ]
           },
@@ -345,46 +631,39 @@
             "Date": 31,
             "DaySlot": "Free",
             "NightSlot": "Free",
-            "Events": [
-            ]
+            "Events": []
           },
           {
             "WeekDay": "Tuesday",
             "Date": 1,
             "OutOfMonth": "November",
-            "OutOfMonthNum": 11,
-            "Events": []
+            "OutOfMonthNum": 11
           },
           {
             "WeekDay": "Wednesday",
             "Date": 2,
             "OutOfMonth": "November",
-            "OutOfMonthNum": 11,
-            "Events": []
+            "OutOfMonthNum": 11
           },
           {
             "WeekDay": "Thursday",
             "Date": 3,
             "OutOfMonth": "November",
-            "OutOfMonthNum": 11,
-            "Events": []
+            "OutOfMonthNum": 11
           },
           {
             "WeekDay": "Friday",
             "Date": 4,
             "OutOfMonth": "November",
-            "OutOfMonthNum": 11,
-            "Events": []
+            "OutOfMonthNum": 11
           },
           {
             "WeekDay": "Saturday",
             "Date": 5,
             "OutOfMonth": "November",
-            "OutOfMonthNum": 11,
-            "Events": []
+            "OutOfMonthNum": 11
           }
         ]
-        
       ]
     },
     {

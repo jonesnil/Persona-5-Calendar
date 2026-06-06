@@ -620,7 +620,7 @@ export default function App() {
             }
             else if (selectedMonthIndex > 0) {
                 iterateSelectedMonth(false);
-                var newWeeksInMonth = calendarData["Months"][selectedMonthIndex]["Weeks"];
+                var newWeeksInMonth = calendarData["Months"][selectedMonthIndex - 1]["Weeks"];
                 if (selectedDay["OutOfMonth"]) {
                     setSelectedWeekIndex(newWeeksInMonth.length - 2);
                 }
