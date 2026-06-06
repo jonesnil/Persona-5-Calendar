@@ -197,7 +197,6 @@ function WeatherDetails({ day, dayTime }) {
         timeSlot = day["NightSlot"];
     }
 
-                    statusEffects.push("Mementos Effect: Higher chance of rare/treasure shadows");
     if (timeSlot === "Free") {
         switch (weatherSlot) {
             case 'Rain':
@@ -214,8 +213,10 @@ function WeatherDetails({ day, dayTime }) {
             case 'Torrential Rain':
                 if (dayTime) {
                     headerText = "Torrential Rain";
-                    statusEffects.push("Studying at Diner gives +3 Knowledge");
+                    statusEffects.push("Mementos Effect: Higher chance of rare/treasure shadows");
                     statusEffects.push("Mementos Effect: More treasure chests");
+                    statusEffects.push("Studying at Diner gives +3 Knowledge");
+
                 }
                 else {
                     headerText = "Rainy Night";
@@ -249,8 +250,8 @@ function WeatherDetails({ day, dayTime }) {
             case 'Heat Wave':
                 if (dayTime) {
                     headerText = "Heat Wave";
-                    statusEffects.push("Studying at Diner gives +3 Knowledge");
                     statusEffects.push("Mementos Effect: Shadows may start combat with Burn");
+                    statusEffects.push("Studying at Diner gives +3 Knowledge");
                 }
                 else {
                     headerText = "Tropical Night";
@@ -261,8 +262,8 @@ function WeatherDetails({ day, dayTime }) {
             case 'Tropical Night':
                 if (dayTime) {
                     headerText = "Heat Wave";
-                    statusEffects.push("Studying at Diner gives +3 Knowledge");
                     statusEffects.push("Mementos Effect: Shadows may start combat with Burn");
+                    statusEffects.push("Studying at Diner gives +3 Knowledge");
                 }
                 else {
                     headerText = "Tropical Night";
@@ -273,8 +274,8 @@ function WeatherDetails({ day, dayTime }) {
             case 'Cold Wave':
                 if (dayTime) {
                     headerText = "Cold Day";
-                    statusEffects.push("Studying at Diner gives +3 Knowledge");
                     statusEffects.push("Mementos Effect: Shadows may start combat with Freeze");
+                    statusEffects.push("Studying at Diner gives +3 Knowledge");
                 }
                 else {
                     headerText = "Cold Night";
@@ -305,8 +306,12 @@ function FreeTimeDetails({ day }) {
         detailedText = "Joker will have no free time.";
     }
     else if (day["DaySlot"] === "Blocked" && day["NightSlot"] === "Restricted") {
-        headerText = "Night in...";
+        headerText = "Busy day, night in...";
         detailedText = "Joker will only have free time at night, and he must stay in Leblanc.";
+    }
+    else if (day["DaySlot"] === "Free" && day["NightSlot"] === "Restricted") {
+        headerText = "Night in...";
+        detailedText = "Joker must stay in Leblanc at night.";
     }
     else if (day["DaySlot"] === "Blocked") {
         headerText = "Busy Afternoon!";
@@ -383,7 +388,7 @@ function NavBar({ onClickPreviousMonth, onClickNextMonth, selectedMonthIndex, wi
         <Button variant="dark" className="me-2" onClick={onClickPreviousMonth}>
             <span className="material-symbols-outlined">line_start_arrow_notch</span>
             </Button>
-            <span className="boxedText" style={{ transform: "rotate(-2deg)" }}>{(windowDimensions.width <= 768 && month["Month"].length >= 4) ? month["Month"].substring(0, 3) + "." : month["Month"]}</span>&nbsp;
+            <span className="boxedText" style={{ transform: "rotate(-2deg)" }}>{(windowDimensions.width <= 768 && month["Month"].length > 4) ? month["Month"].substring(0, 3) + "." : month["Month"]}</span>&nbsp;
         <span className="boxedText" style={{ transform: "rotate(1deg)" }}>{month["Year"]}</span>
         <Button variant="dark" className="ms-2" onClick={onClickNextMonth}>
          <span className="material-symbols-outlined">line_end_arrow_notch</span>

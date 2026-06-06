@@ -39,6 +39,10 @@
     background: #3b3b3b;
 }
 
+.FreeRestricted {
+    background: linear-gradient(to right, #3b3b3b 50%, #8c6723 50%);
+}
+
 .BlockedBlocked {
     background: #560d0d;
 }
