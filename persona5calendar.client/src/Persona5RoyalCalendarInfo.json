@@ -983,29 +983,25 @@
             "WeekDay": "Sunday",
             "Date": 27,
             "OutOfMonth": "November",
-            "OutOfMonthNum": 11,
-            "Events": []
+            "OutOfMonthNum": 11
           },
           {
             "WeekDay": "Monday",
             "Date": 28,
             "OutOfMonth": "November",
-            "OutOfMonthNum": 11,
-            "Events": []
+            "OutOfMonthNum": 11
           },
           {
             "WeekDay": "Tuesday",
             "Date": 29,
             "OutOfMonth": "November",
-            "OutOfMonthNum": 11,
-            "Events": []
+            "OutOfMonthNum": 11
           },
           {
             "WeekDay": "Wednesday",
             "Date": 30,
             "OutOfMonth": "November",
-            "OutOfMonthNum": 11,
-            "Events": []
+            "OutOfMonthNum": 11
           },
           {
             "WeekDay": "Thursday",
@@ -1023,17 +1019,18 @@
               {
                 "Type": "Puzzle",
                 "Title": "Crossword",
-                "Details": "New crossword at Leblanc! The solution is: 'INFLUENZA'"
+                "Footnote": "INFLUENZA",
+                "Details": "New crossword at Leblanc! The solution is: 'INFLUENZA.'"
               }
             ]
           },
           {
             "WeekDay": "Saturday",
             "Date": 3,
-            "DaySlot": "Free",
-            "NightSlot": "Free",
             "WeatherDay": "Snow",
             "WeatherNight": "Rain",
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "Events": []
           }
         ],
@@ -1047,8 +1044,8 @@
               {
                 "Type": "Jazz Club",
                 "Title": "Heat Riser",
-                "Details": "Taking a party member to the Jazz Club will teach them 'Heat Riser.'",
-                "Footnote": "Increases 1 ally's Attack, Defense and Hit/Evasion for 3 turns."
+                "Footnote": "Increases 1 ally's Attack, Defense and Hit/Evasion for 3 turns.",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Heat Riser.'"
               }
             ]
           },
@@ -1075,35 +1072,36 @@
               {
                 "Type": "Puzzle",
                 "Title": "Crossword",
-                "Details": "New crossword at Leblanc! The solution is: 'ILLUMINATE'"
+                "Footnote": "ILLUMINATE",
+                "Details": "New crossword at Leblanc! The solution is: 'ILLUMINATE.'"
               }
             ]
           },
           {
             "WeekDay": "Thursday",
             "Date": 8,
-            "DaySlot": "Free",
-            "NightSlot": "Free",
             "WeatherDay": "Flu Season",
             "WeatherNight": "Flu Season",
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "Events": []
           },
           {
             "WeekDay": "Friday",
             "Date": 9,
-            "DaySlot": "Free",
-            "NightSlot": "Free",
             "WeatherDay": "Flu Season",
             "WeatherNight": "Flu Season",
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "Events": []
           },
           {
             "WeekDay": "Saturday",
             "Date": 10,
-            "DaySlot": "Free",
-            "NightSlot": "Free",
             "WeatherDay": "Cloudy",
             "WeatherNight": "Rain",
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "Events": []
           }
         ],
@@ -1117,8 +1115,8 @@
               {
                 "Type": "Jazz Club",
                 "Title": "Debilitate",
-                "Details": "Taking a party member to the Jazz Club will teach them 'Debilitate.'",
-                "Footnote": "Decreases 1 foe's Attack, Defense and Hit/Evasion for 3 turns."
+                "Footnote": "Decreases 1 foe's Attack, Defense and Hit/Evasion for 3 turns.",
+                "Details": "Taking a party member to the Jazz Club will teach them 'Debilitate.'"
               }
             ]
           },
@@ -1131,17 +1129,18 @@
               {
                 "Type": "Puzzle",
                 "Title": "Crossword",
-                "Details": "New crossword at Leblanc! The solution is: 'APPROVAL'"
+                "Footnote": "APPROVAL",
+                "Details": "New crossword at Leblanc! The solution is: 'APPROVAL.'"
               }
             ]
           },
           {
             "WeekDay": "Tuesday",
             "Date": 13,
-            "DaySlot": "Free",
-            "NightSlot": "Free",
             "WeatherDay": "Rain",
             "WeatherNight": "Cloudy",
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "Events": []
           },
           {
@@ -1154,19 +1153,19 @@
           {
             "WeekDay": "Thursday",
             "Date": 15,
-            "DaySlot": "Free",
-            "NightSlot": "Free",
             "WeatherDay": "Snow",
             "WeatherNight": "Clear",
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "Events": []
           },
           {
             "WeekDay": "Friday",
             "Date": 16,
-            "DaySlot": "Free",
-            "NightSlot": "Free",
             "WeatherDay": "Clear",
             "WeatherNight": "Snow",
+            "DaySlot": "Free",
+            "NightSlot": "Free",
             "Events": []
           },
           {
@@ -1204,7 +1203,8 @@
               {
                 "Type": "Puzzle",
                 "Title": "Crossword",
-                "Details": "New crossword at Leblanc! The solution is: 'CHRISTMAS'"
+                "Footnote": "CHRISTMAS",
+                "Details": "New crossword at Leblanc! The solution is: 'CHRISTMAS.'"
               }
             ]
           },
@@ -1254,18 +1254,18 @@
           {
             "WeekDay": "Saturday",
             "Date": 24,
-            "DaySlot": "Blocked",
-            "NightSlot": "Blocked",
             "WeatherDay": "Clear",
             "WeatherNight": "Snow",
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
             "Events": [
-              {
-                "Type": "Story",
-                "Title": "Mementos"
-              },
               {
                 "Type": "Exam",
                 "Title": "Exam Scores"
+              },
+              {
+                "Type": "Story",
+                "Title": "Mementos"
               }
             ]
           }
@@ -1274,10 +1274,10 @@
           {
             "WeekDay": "Sunday",
             "Date": 25,
-            "DaySlot": "Blocked",
-            "NightSlot": "Blocked",
             "WeatherDay": "Snow",
             "WeatherNight": "Snow",
+            "DaySlot": "Blocked",
+            "NightSlot": "Blocked",
             "Events": []
           },
           {
