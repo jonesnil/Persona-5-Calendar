@@ -131,6 +131,7 @@
 
 .details {
     grid-area: details;
+    overflow-y: auto;
 }
 
 .calendarEventSmall {
