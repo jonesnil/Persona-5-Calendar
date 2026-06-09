@@ -73,7 +73,7 @@
 }
 
 .calendarLayout {
-    height: 100vh;
+    height: 100dvh;
     display: grid;
     grid-template-areas:
         "navBar navBar"
@@ -84,7 +84,7 @@
 
 @media only screen and (max-width: 768px) {
     .calendarLayout {
-        height: 100vh;
+        height: 100dvh;
         display: grid;
         grid-template-areas:
             "navBar"
