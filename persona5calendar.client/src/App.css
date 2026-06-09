@@ -126,11 +126,16 @@
     grid-area: navBar;
 }
 
-.calendar td {
-    grid-area: calendar;
+.calendarTable td {
     table-layout: fixed;
     height: calc(100% / 6);
     border: 2px solid gray;
+}
+
+.calendar {
+    grid-area: calendar;
+    overflow-y: auto;
+    white-space: nowrap;
 }
 
 .details {

@@ -7,39 +7,41 @@ function Calendar({ onDetailsClick, windowDimensions, selectedMonthIndex, select
         onDetailsClick(weekIndex, dayIndex);
     }
 
-    return <table className="table calendar">
-        <colgroup>
-            <col style={{ width: "14%" }} ></col>
-            <col style={{ width: "14%" }} ></col>
-            <col style={{ width: "14%" }} ></col>
-            <col style={{ width: "14%" }} ></col>
-            <col style={{ width: "14%" }} ></col>
-            <col style={{ width: "14%" }} ></col>
-            <col style={{ width: "14%" }} ></col>
-        </colgroup>
-        <thead>
-            <tr className="text-center">
-                <th>SUN</th>
-                <th>MON</th>
-                <th>TUE</th>
-                <th>WED</th>
-                <th>THU</th>
-                <th>FRI</th>
-                <th>SAT</th>
-            </tr>
-        </thead>
-        <tbody>
-            {calendarData["Months"][selectedMonthIndex]["Weeks"].map((week, weekIndex) =>
-                <tr key={weekIndex}>
-                    {week.map((day, dayIndex) => <CalendarDay key={dayIndex} windowDimensions={windowDimensions} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex} weekIndex={weekIndex} dayIndex={dayIndex} onCalendarDayClick={() => handleClick(weekIndex, dayIndex)}
-                        displayExamEvents={displayExamEvents}
-                        displayStoryEvents={displayStoryEvents}
-                        displayJazzClubEvents={displayJazzClubEvents}
-                        displayPuzzleEvents={displayPuzzleEvents}></CalendarDay>)}
+    return <div className="calendar">
+            <table className="table calendarTable">
+            <colgroup>
+                <col style={{ width: "14%" }} ></col>
+                <col style={{ width: "14%" }} ></col>
+                <col style={{ width: "14%" }} ></col>
+                <col style={{ width: "14%" }} ></col>
+                <col style={{ width: "14%" }} ></col>
+                <col style={{ width: "14%" }} ></col>
+                <col style={{ width: "14%" }} ></col>
+            </colgroup>
+            <thead>
+                <tr className="text-center">
+                    <th>SUN</th>
+                    <th>MON</th>
+                    <th>TUE</th>
+                    <th>WED</th>
+                    <th>THU</th>
+                    <th>FRI</th>
+                    <th>SAT</th>
                 </tr>
-            )}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                {calendarData["Months"][selectedMonthIndex]["Weeks"].map((week, weekIndex) =>
+                    <tr key={weekIndex}>
+                        {week.map((day, dayIndex) => <CalendarDay key={dayIndex} windowDimensions={windowDimensions} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex} weekIndex={weekIndex} dayIndex={dayIndex} onCalendarDayClick={() => handleClick(weekIndex, dayIndex)}
+                            displayExamEvents={displayExamEvents}
+                            displayStoryEvents={displayStoryEvents}
+                            displayJazzClubEvents={displayJazzClubEvents}
+                            displayPuzzleEvents={displayPuzzleEvents}></CalendarDay>)}
+                    </tr>
+                )}
+            </tbody>
+            </table>
+        </div>
 }
 
 
