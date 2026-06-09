@@ -19,7 +19,7 @@ const keyFilePath = path.join(baseFolder, `${certificateName}.key`);
 if (!fs.existsSync(baseFolder)) {
     fs.mkdirSync(baseFolder, { recursive: true });
 }
-
+console.log(`base: ${fs.existsSync(baseFolder)} certfile: ${fs.existsSync(certFilePath)} key file: ${fs.existsSync(keyFilePath)} path: ${baseFolder}`);
 if (!fs.existsSync(certFilePath) || !fs.existsSync(keyFilePath)) {
     if (0 !== child_process.spawnSync('dotnet', [
         'dev-certs',
