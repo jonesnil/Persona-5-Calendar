@@ -12,7 +12,7 @@ function NavBar({ onMonthSelect, selectedMonthIndex, windowDimensions, displayEx
 
     return <h1 className="navBar text-center libre-franklin-bold" style={{ display: "flex", justifyContent: "space-between" }}>
         <span className="boxedText ms-2" style={{ transform: "rotate(1deg)" }}>{windowDimensions.width <= 768 ? "" : "P5R Planner"}</span>
-        <Form.Select size="lg" className="w-auto" value={selectedMonthIndex} onChange={e => { onMonthSelect(parseInt(e.target.value)); }}>
+        <Form.Select size="lg" className="w-auto mt-1" value={selectedMonthIndex} onChange={e => { onMonthSelect(parseInt(e.target.value)); }}>
             {calendarData["Months"].map((month, monthIndex) =>
                 <option key={monthIndex} value={monthIndex}>{month["Month"]} {month["Year"]}</option>
             )}

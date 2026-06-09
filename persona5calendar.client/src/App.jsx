@@ -19,6 +19,8 @@ function getWindowDimensions() {
 
 var backPressedDownLast = 0;
 var forwardPressedDownLast = 0;
+var upPressedDownLast = 0;
+var downPressedDownLast = 0;
 export default function App() {
 
     const [selectedMonthIndex, setSelectedMonthIndex] = useState(0);
@@ -27,6 +29,8 @@ export default function App() {
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
     const [backPressed, setBackPressed] = useState(false);
     const [forwardPressed, setForwardPressed] = useState(false);
+    const [upPressed, setUpPressed] = useState(false);
+    const [downPressed, setDownPressed] = useState(false);
 
 
     const [displayStoryEvents, setDisplayStoryEvents] = useState(false);
@@ -53,6 +57,20 @@ export default function App() {
                     forwardPressedDownLast = Date.now();
                 }
             }
+            // Check if the pressed key is 'up'
+            if (event.keyCode === 38 || event.keyCode == 87) {
+                if (Date.now() - upPressedDownLast > 200) {
+                    setUpPressed(true);
+                    upPressedDownLast = Date.now();
+                }
+            }
+            // Check if the pressed key is 'down'
+            if (event.keyCode === 40 || event.keyCode == 83) {
+                if (Date.now() - downPressedDownLast > 200) {
+                    setDownPressed(true);
+                    downPressedDownLast = Date.now();
+                }
+            }
         };
 
         const handleKeyUp = (event) => {
@@ -63,6 +81,14 @@ export default function App() {
             // Check if the pressed key is 'right'
             if (event.keyCode === 39 || event.keyCode === 68) {
                 forwardPressedDownLast = 0;
+            }
+            // Check if the pressed key is 'up'
+            if (event.keyCode === 38 || event.keyCode == 87) {
+                upPressedDownLast = 0;
+            }
+            // Check if the pressed key is 'down'
+            if (event.keyCode === 40 || event.keyCode === 83) {
+                downPressedDownLast = 0;
             }
         };
 
@@ -151,6 +177,21 @@ export default function App() {
         }
     }
 
+    function iterateSelectedWeek(next) {
+        var weeksInMonth = calendarData["Months"][selectedMonthIndex]["Weeks"];
+
+        if (next) {
+            if (weeksInMonth.length - 1 > selectedWeekIndex) {
+                setSelectedWeekIndex(selectedWeekIndex + 1);
+            }
+        }
+        else {
+            if (selectedWeekIndex > 0) {
+                setSelectedWeekIndex(selectedWeekIndex - 1);
+            }
+        }
+    }
+
     if (backPressed) {
         iterateSelectedDay(false);
         setBackPressed(false);
@@ -159,6 +200,16 @@ export default function App() {
     if (forwardPressed) {
         iterateSelectedDay(true);
         setForwardPressed(false);
+    }
+
+    if (upPressed) {
+        iterateSelectedWeek(false);
+        setUpPressed(false);
+    }
+
+    if (downPressed) {
+        iterateSelectedWeek(true);
+        setDownPressed(false);
     }
 
     return (<div className="calendarLayout" data-bs-theme="dark">

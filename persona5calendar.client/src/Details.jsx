@@ -22,7 +22,7 @@ function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selecte
     }
 
     return <div className="card details">
-        <div className="card-header">
+        <div className="card-header detailsHeader">
             <DetailsNavbar day={selectedDay} month={selectedMonth} onClickNextDay={onClickNextDay} onClickPreviousDay={onClickPreviousDay} windowDimensions={windowDimensions}></DetailsNavbar>
         </div>
         <div className="card-body detailsContents">
@@ -56,11 +56,11 @@ function DetailsNavbar({ day, month, onClickNextDay, onClickPreviousDay, windowD
         dayText = `${day["WeekDay"]} ${monthText} ${day["Date"]}`;
     }
     return <h5 className="card-title text-center mb-4 libre-franklin-regular flexSpaceBetween">
-        <Button variant="danger" onClick={onClickPreviousDay}>
+        <Button variant="danger" size="sm" onClick={onClickPreviousDay}>
             <span className="material-symbols-outlined">line_start_arrow_notch</span>
         </Button>
         <span>{dayText}</span>
-        <Button variant="danger" onClick={onClickNextDay}>
+        <Button variant="danger" size="sm" onClick={onClickNextDay}>
             <span className="material-symbols-outlined">line_end_arrow_notch</span>
         </Button>
     </h5>

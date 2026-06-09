@@ -21,6 +21,7 @@
 .flexSpaceBetween {
     display: flex;
     justify-content: space-between;
+    align-items:center;
 }
 
 .BlockedRestricted {
@@ -90,7 +91,7 @@
             "navBar"
             "calendar"
             "details";
-        grid-template-rows: auto 1fr 2fr;
+        grid-template-rows: auto 2fr 3fr;
         grid-template-columns: 1fr;
     }
 }
@@ -124,12 +125,17 @@
 
 .navBar {
     grid-area: navBar;
+    margin-bottom: 0.3rem;
 }
 
 .calendarTable td {
-    table-layout: fixed;
     height: calc(100% / 6);
     border: 2px solid gray;
+}
+
+.calendarTable {
+    table-layout: fixed;
+    height: stretch;
 }
 
 .calendar {
@@ -140,6 +146,10 @@
 
 .details {
     grid-area: details;
+}
+
+.detailsHeader {
+    height: 60px;
 }
 
 .detailsContents {
