@@ -22,8 +22,10 @@ function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selecte
     }
 
     return <div className="card details">
-        <div className="card-body">
+        <div className="card-header">
             <DetailsNavbar day={selectedDay} month={selectedMonth} onClickNextDay={onClickNextDay} onClickPreviousDay={onClickPreviousDay} windowDimensions={windowDimensions}></DetailsNavbar>
+        </div>
+        <div className="card-body detailsContents">
             <WeatherDetails day={selectedDay} dayTime={true} displayWeatherDetails={displayWeatherDetails}></WeatherDetails>
             <WeatherDetails day={selectedDay} dayTime={false} displayWeatherDetails={displayWeatherDetails}></WeatherDetails>
             <FreeTimeDetails day={selectedDay} displayFreeTimeDetails={displayFreeTimeDetails}></FreeTimeDetails>

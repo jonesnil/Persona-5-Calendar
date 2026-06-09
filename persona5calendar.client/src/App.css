@@ -140,7 +140,11 @@
 
 .details {
     grid-area: details;
+}
+
+.detailsContents {
     overflow-y: auto;
+    height: 1px;
 }
 
 .calendarEventSmall {
