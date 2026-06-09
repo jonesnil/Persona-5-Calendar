@@ -34,6 +34,9 @@ export default function App() {
     const [displayJazzClubEvents, setDisplayJazzClubEvents] = useState(true);
     const [displayPuzzleEvents, setDisplayPuzzleEvents] = useState(true);
 
+    const [displayWeatherDetails, setDisplayWeatherDetails] = useState(true);
+    const [displayFreeTimeDetails, setDisplayFreeTimeDetails] = useState(true);
+
     useEffect(() => {
         const handleKeyDown = (event) => {
             // Check if the pressed key is 'left'
@@ -100,7 +103,7 @@ export default function App() {
     function handleMonthSelectClick(monthSelected) {
         setSelectedMonthIndex(monthSelected);
         setSelectedWeekIndex(0);
-        setSelectedDayIndex(0);
+        setSelectedDayIndex(calendarData["Months"][monthSelected]["MonthBeginIndex"]);
     }
     function iterateSelectedDay(next) {
         var weeksInMonth = calendarData["Months"][selectedMonthIndex]["Weeks"];
@@ -165,7 +168,9 @@ export default function App() {
             displayExamEvents={displayExamEvents} setDisplayExamEvents={setDisplayExamEvents}
             displayStoryEvents={displayStoryEvents} setDisplayStoryEvents={setDisplayStoryEvents}
             displayJazzClubEvents={displayJazzClubEvents} setDisplayJazzClubEvents={setDisplayJazzClubEvents}
-            displayPuzzleEvents={displayPuzzleEvents} setDisplayPuzzleEvents={setDisplayPuzzleEvents}        ></NavBar>
+            displayPuzzleEvents={displayPuzzleEvents} setDisplayPuzzleEvents={setDisplayPuzzleEvents}
+            displayWeatherDetails={displayWeatherDetails} setDisplayWeatherDetails={setDisplayWeatherDetails}
+            displayFreeTimeDetails={displayFreeTimeDetails} setDisplayFreeTimeDetails={setDisplayFreeTimeDetails}></NavBar>
         <Calendar onDetailsClick={displayDetails} windowDimensions={windowDimensions} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex}
             displayExamEvents={displayExamEvents}
             displayStoryEvents={displayStoryEvents}
@@ -175,6 +180,8 @@ export default function App() {
             displayExamEvents={displayExamEvents}
             displayStoryEvents={displayStoryEvents}
             displayJazzClubEvents={displayJazzClubEvents}
-            displayPuzzleEvents={displayPuzzleEvents}></Details>
+            displayPuzzleEvents={displayPuzzleEvents}
+            displayWeatherDetails={displayWeatherDetails}
+            displayFreeTimeDetails={displayFreeTimeDetails} ></Details>
             </div>)
 }

@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Modal from 'react-bootstrap/Modal';
 import calendarData from './Persona5RoyalCalendarInfo.json'
-function NavBar({ onMonthSelect, selectedMonthIndex, windowDimensions, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, setDisplayExamEvents, setDisplayJazzClubEvents, setDisplayPuzzleEvents, setDisplayStoryEvents }) {
+function NavBar({ onMonthSelect, selectedMonthIndex, windowDimensions, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayWeatherDetails, displayFreeTimeDetails, setDisplayExamEvents, setDisplayJazzClubEvents, setDisplayPuzzleEvents, setDisplayStoryEvents, setDisplayWeatherDetails, setDisplayFreeTimeDetails }) {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -25,19 +25,21 @@ function NavBar({ onMonthSelect, selectedMonthIndex, windowDimensions, displayEx
             displayExamEvents={displayExamEvents} setDisplayExamEvents={setDisplayExamEvents}
             displayStoryEvents={displayStoryEvents} setDisplayStoryEvents={setDisplayStoryEvents}
             displayJazzClubEvents={displayJazzClubEvents} setDisplayJazzClubEvents={setDisplayJazzClubEvents}
-            displayPuzzleEvents={displayPuzzleEvents} setDisplayPuzzleEvents={setDisplayPuzzleEvents} ></EventOptionsModal>
+            displayPuzzleEvents={displayPuzzleEvents} setDisplayPuzzleEvents={setDisplayPuzzleEvents}
+            displayWeatherDetails={displayWeatherDetails} setDisplayWeatherDetails={setDisplayWeatherDetails}
+            displayFreeTimeDetails={displayFreeTimeDetails} setDisplayFreeTimeDetails={setDisplayFreeTimeDetails}></EventOptionsModal>
     </h1>
 }
 
-function EventOptionsModal({ show, handleClose, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, setDisplayExamEvents, setDisplayJazzClubEvents, setDisplayPuzzleEvents, setDisplayStoryEvents }) {
+function EventOptionsModal({ show, handleClose, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayWeatherDetails, displayFreeTimeDetails, setDisplayExamEvents, setDisplayJazzClubEvents, setDisplayPuzzleEvents, setDisplayStoryEvents, setDisplayWeatherDetails, setDisplayFreeTimeDetails }) {
     return (
         <>
             <Modal show={show} onHide={handleClose} data-bs-theme="dark">
-                <Modal.Header closeButton className="libre-franklin-regular">
-                    <Modal.Title>Event Display Settings:</Modal.Title>
+                <Modal.Header closeButton>
                 </Modal.Header>
                 <Modal.Body>
-                    <ListGroup className="arsenal-bold">
+                    <h3>Event Settings:</h3>
+                    <ListGroup className="arsenal-bold mb-3">
                         <ListGroup.Item className="Story">
                             <Form.Check type="checkbox" id="StoryEventsCheck" checked={displayStoryEvents}
                                 label="Display Story Events (Spoilers!)"
@@ -64,6 +66,23 @@ function EventOptionsModal({ show, handleClose, displayExamEvents, displayJazzCl
                                 label="Display Puzzle Events"
                                 onChange={e => {
                                     setDisplayPuzzleEvents(e.target.checked)
+                                }} />
+                        </ListGroup.Item>
+                    </ListGroup>
+                    <h3>General Settings:</h3>
+                    <ListGroup className="arsenal-bold mb-2">
+                        <ListGroup.Item>
+                            <Form.Check type="checkbox" id="WeatherDetailsCheck" checked={displayWeatherDetails}
+                                label="Display Weather Details"
+                                onChange={e => {
+                                    setDisplayWeatherDetails(e.target.checked)
+                                }} />
+                        </ListGroup.Item>
+                        <ListGroup.Item>
+                            <Form.Check type="checkbox" id="FreeTimeDetailsCheck" checked={displayFreeTimeDetails}
+                                label="Display Free Time Details"
+                                onChange={e => {
+                                    setDisplayFreeTimeDetails(e.target.checked)
                                 }} />
                         </ListGroup.Item>
                     </ListGroup>

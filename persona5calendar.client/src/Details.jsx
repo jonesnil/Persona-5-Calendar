@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import calendarData from './Persona5RoyalCalendarInfo.json'
-function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents }) {
+function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayWeatherDetails, displayFreeTimeDetails }) {
     var selectedMonth = calendarData["Months"][selectedMonthIndex];
     var selectedDay = calendarData["Months"][selectedMonthIndex]["Weeks"][selectedWeekIndex][selectedDayIndex];
 
@@ -16,7 +16,6 @@ function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selecte
         if (selectedDay["OutOfMonthNum"] > selectedMonth["Number"]
             && selectedMonthIndex < calendarData["Months"].length - 1) {
             var nextMonth = calendarData["Months"][selectedMonthIndex + 1];
-            console.log(`next month is ${selectedMonthIndex + 1}`);
             selectedDay = nextMonth["Weeks"][0][selectedDayIndex];
             selectedMonth = nextMonth;
         }
@@ -25,9 +24,9 @@ function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selecte
     return <div className="card details">
         <div className="card-body">
             <DetailsNavbar day={selectedDay} month={selectedMonth} onClickNextDay={onClickNextDay} onClickPreviousDay={onClickPreviousDay} windowDimensions={windowDimensions}></DetailsNavbar>
-            <WeatherDetails day={selectedDay} dayTime={true}></WeatherDetails>
-            <WeatherDetails day={selectedDay} dayTime={false}></WeatherDetails>
-            <FreeTimeDetails day={selectedDay}></FreeTimeDetails>
+            <WeatherDetails day={selectedDay} dayTime={true} displayWeatherDetails={displayWeatherDetails}></WeatherDetails>
+            <WeatherDetails day={selectedDay} dayTime={false} displayWeatherDetails={displayWeatherDetails}></WeatherDetails>
+            <FreeTimeDetails day={selectedDay} displayFreeTimeDetails={displayFreeTimeDetails}></FreeTimeDetails>
             {("Events" in selectedDay && selectedDay["Events"].length > 0) ?
                 <ListGroup className="fs-6 arsenal-regular mb-2" style={{ clear: "both", display: "block" }}>
                     {selectedDay["Events"].map((event) =>
@@ -97,11 +96,15 @@ function CalendarEventDetails({ event, displayExamEvents, displayJazzClubEvents,
         <small>{event["Footnote"]}</small>
     </ListGroup.Item>)
 }
-function WeatherDetails({ day, dayTime }) {
+function WeatherDetails({ day, dayTime, displayWeatherDetails }) {
     var headerText;
     var statusEffects = [];
     var weatherSlot = day["WeatherDay"];
     var timeSlot = day["DaySlot"];
+
+    if (!displayWeatherDetails) {
+        return null;
+    }
 
     if (!dayTime) {
         weatherSlot = day["WeatherNight"];
@@ -208,9 +211,14 @@ function WeatherDetails({ day, dayTime }) {
     return (null)
 }
 
-function FreeTimeDetails({ day }) {
+function FreeTimeDetails({ day, displayFreeTimeDetails }) {
     var headerText;
     var detailedText;
+
+    if (!displayFreeTimeDetails) {
+        return null;
+    }
+
     if (day["DaySlot"] === "Blocked" &&
         day["NightSlot"] === "Blocked") {
         headerText = "Busy Day!";
