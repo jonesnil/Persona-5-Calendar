@@ -44,28 +44,32 @@ function EventOptionsModal({ show, handleClose, displayExamEvents, displayJazzCl
                             <Form.Check type="checkbox" id="StoryEventsCheck" checked={displayStoryEvents}
                                 label="Display Story Events (Spoilers!)"
                                 onChange={e => {
-                                    setDisplayStoryEvents(e.target.checked)
+                                    setDisplayStoryEvents(e.target.checked);
+                                    localStorage.setItem("displayStory", e.target.checked);
                                 }} />
                         </ListGroup.Item>
                         <ListGroup.Item className="Exam">
                             <Form.Check type="checkbox" id="ExamEventsCheck" checked={displayExamEvents}
                                 label="Display Exam Events"
                                 onChange={e => {
-                                    setDisplayExamEvents(e.target.checked)
+                                    setDisplayExamEvents(e.target.checked);
+                                    localStorage.setItem("displayExam", e.target.checked);
                                 }} />
                         </ListGroup.Item>
                         <ListGroup.Item className="JazzClub">
                             <Form.Check type="checkbox" id="JazzClubEventsCheck" checked={displayJazzClubEvents}
                                 label="Display Jazz Club Events"
                                 onChange={e => {
-                                    setDisplayJazzClubEvents(e.target.checked)
+                                    setDisplayJazzClubEvents(e.target.checked);
+                                    localStorage.setItem("displayJazzClub", e.target.checked);
                                 }} />
                         </ListGroup.Item>
                         <ListGroup.Item className="Puzzle">
                             <Form.Check type="checkbox" id="PuzzleEventsCheck" checked={displayPuzzleEvents}
                                 label="Display Puzzle Events"
                                 onChange={e => {
-                                    setDisplayPuzzleEvents(e.target.checked)
+                                    setDisplayPuzzleEvents(e.target.checked);
+                                    localStorage.setItem("displayPuzzle", e.target.checked);
                                 }} />
                         </ListGroup.Item>
                     </ListGroup>
@@ -75,14 +79,16 @@ function EventOptionsModal({ show, handleClose, displayExamEvents, displayJazzCl
                             <Form.Check type="checkbox" id="WeatherDetailsCheck" checked={displayWeatherDetails}
                                 label="Display Weather Details"
                                 onChange={e => {
-                                    setDisplayWeatherDetails(e.target.checked)
+                                    setDisplayWeatherDetails(e.target.checked);
+                                    localStorage.setItem("displayWeather", e.target.checked);
                                 }} />
                         </ListGroup.Item>
                         <ListGroup.Item>
                             <Form.Check type="checkbox" id="FreeTimeDetailsCheck" checked={displayFreeTimeDetails}
                                 label="Display Free Time Details"
                                 onChange={e => {
-                                    setDisplayFreeTimeDetails(e.target.checked)
+                                    setDisplayFreeTimeDetails(e.target.checked);
+                                    localStorage.setItem("displayFreeTime", e.target.checked);
                                 }} />
                         </ListGroup.Item>
                     </ListGroup>

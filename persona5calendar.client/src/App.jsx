@@ -33,13 +33,13 @@ export default function App() {
     const [downPressed, setDownPressed] = useState(false);
 
 
-    const [displayStoryEvents, setDisplayStoryEvents] = useState(false);
-    const [displayExamEvents, setDisplayExamEvents] = useState(true);
-    const [displayJazzClubEvents, setDisplayJazzClubEvents] = useState(true);
-    const [displayPuzzleEvents, setDisplayPuzzleEvents] = useState(true);
+    const [displayStoryEvents, setDisplayStoryEvents] = useState(localStorage.getItem("displayStory") !== null ? localStorage.getItem("displayStory") === "true" : false);
+    const [displayExamEvents, setDisplayExamEvents] = useState(localStorage.getItem("displayExam") !== null ? localStorage.getItem("displayExam") === "true" : true);
+    const [displayJazzClubEvents, setDisplayJazzClubEvents] = useState(localStorage.getItem("displayJazzClub") !== null ? localStorage.getItem("displayJazzClub") === "true" : true);
+    const [displayPuzzleEvents, setDisplayPuzzleEvents] = useState(localStorage.getItem("displayPuzzle") !== null ? localStorage.getItem("displayPuzzle") === "true" : true);
 
-    const [displayWeatherDetails, setDisplayWeatherDetails] = useState(true);
-    const [displayFreeTimeDetails, setDisplayFreeTimeDetails] = useState(true);
+    const [displayWeatherDetails, setDisplayWeatherDetails] = useState(localStorage.getItem("displayWeather") !== null ? localStorage.getItem("displayWeather") === "true" : true);
+    const [displayFreeTimeDetails, setDisplayFreeTimeDetails] = useState(localStorage.getItem("displayFreeTime") !== null ? localStorage.getItem("displayFreeTime") === "true" : true);
 
     useEffect(() => {
         const handleKeyDown = (event) => {
