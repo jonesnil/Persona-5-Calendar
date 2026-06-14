@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Modal from 'react-bootstrap/Modal';
 import calendarData from './Persona5RoyalCalendarInfo.json'
-function NavBar({ onMonthSelect, selectedMonthIndex, windowDimensions, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayWeatherDetails, displayFreeTimeDetails, setDisplayExamEvents, setDisplayJazzClubEvents, setDisplayPuzzleEvents, setDisplayStoryEvents, setDisplayWeatherDetails, setDisplayFreeTimeDetails }) {
+function NavBar({ onMonthSelect, selectedMonthIndex, windowDimensions, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents, displayWeatherDetails, displayFreeTimeDetails, setDisplayExamEvents, setDisplayJazzClubEvents, setDisplayPuzzleEvents, setDisplayStoryEvents, setDisplayClassEvents, setDisplayWeatherDetails, setDisplayFreeTimeDetails }) {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);
@@ -26,12 +26,13 @@ function NavBar({ onMonthSelect, selectedMonthIndex, windowDimensions, displayEx
             displayStoryEvents={displayStoryEvents} setDisplayStoryEvents={setDisplayStoryEvents}
             displayJazzClubEvents={displayJazzClubEvents} setDisplayJazzClubEvents={setDisplayJazzClubEvents}
             displayPuzzleEvents={displayPuzzleEvents} setDisplayPuzzleEvents={setDisplayPuzzleEvents}
+            displayClassEvents={displayClassEvents} setDisplayClassEvents={setDisplayClassEvents}
             displayWeatherDetails={displayWeatherDetails} setDisplayWeatherDetails={setDisplayWeatherDetails}
             displayFreeTimeDetails={displayFreeTimeDetails} setDisplayFreeTimeDetails={setDisplayFreeTimeDetails}></EventOptionsModal>
     </h1>
 }
 
-function EventOptionsModal({ show, handleClose, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayWeatherDetails, displayFreeTimeDetails, setDisplayExamEvents, setDisplayJazzClubEvents, setDisplayPuzzleEvents, setDisplayStoryEvents, setDisplayWeatherDetails, setDisplayFreeTimeDetails }) {
+function EventOptionsModal({ show, handleClose, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents, displayWeatherDetails, displayFreeTimeDetails, setDisplayExamEvents, setDisplayJazzClubEvents, setDisplayPuzzleEvents, setDisplayStoryEvents, setDisplayClassEvents, setDisplayWeatherDetails, setDisplayFreeTimeDetails }) {
     return (
         <>
             <Modal show={show} onHide={handleClose} data-bs-theme="dark">
@@ -70,6 +71,14 @@ function EventOptionsModal({ show, handleClose, displayExamEvents, displayJazzCl
                                 onChange={e => {
                                     setDisplayPuzzleEvents(e.target.checked);
                                     localStorage.setItem("displayPuzzle", e.target.checked);
+                                }} />
+                        </ListGroup.Item>
+                        <ListGroup.Item className="Class">
+                            <Form.Check type="checkbox" id="ClassEventsCheck" checked={displayClassEvents}
+                                label="Display Class Events"
+                                onChange={e => {
+                                    setDisplayClassEvents(e.target.checked);
+                                    localStorage.setItem("displayClass", e.target.checked);
                                 }} />
                         </ListGroup.Item>
                     </ListGroup>

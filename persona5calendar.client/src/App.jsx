@@ -37,6 +37,7 @@ export default function App() {
     const [displayExamEvents, setDisplayExamEvents] = useState(localStorage.getItem("displayExam") !== null ? localStorage.getItem("displayExam") === "true" : true);
     const [displayJazzClubEvents, setDisplayJazzClubEvents] = useState(localStorage.getItem("displayJazzClub") !== null ? localStorage.getItem("displayJazzClub") === "true" : true);
     const [displayPuzzleEvents, setDisplayPuzzleEvents] = useState(localStorage.getItem("displayPuzzle") !== null ? localStorage.getItem("displayPuzzle") === "true" : true);
+    const [displayClassEvents, setDisplayClassEvents] = useState(localStorage.getItem("displayClass") !== null ? localStorage.getItem("displayClass") === "true" : true);
 
     const [displayWeatherDetails, setDisplayWeatherDetails] = useState(localStorage.getItem("displayWeather") !== null ? localStorage.getItem("displayWeather") === "true" : true);
     const [displayFreeTimeDetails, setDisplayFreeTimeDetails] = useState(localStorage.getItem("displayFreeTime") !== null ? localStorage.getItem("displayFreeTime") === "true" : true);
@@ -220,18 +221,21 @@ export default function App() {
             displayStoryEvents={displayStoryEvents} setDisplayStoryEvents={setDisplayStoryEvents}
             displayJazzClubEvents={displayJazzClubEvents} setDisplayJazzClubEvents={setDisplayJazzClubEvents}
             displayPuzzleEvents={displayPuzzleEvents} setDisplayPuzzleEvents={setDisplayPuzzleEvents}
+            displayClassEvents={displayClassEvents} setDisplayClassEvents={setDisplayClassEvents}
             displayWeatherDetails={displayWeatherDetails} setDisplayWeatherDetails={setDisplayWeatherDetails}
             displayFreeTimeDetails={displayFreeTimeDetails} setDisplayFreeTimeDetails={setDisplayFreeTimeDetails}></NavBar>
         <Calendar onDetailsClick={displayDetails} windowDimensions={windowDimensions} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex}
             displayExamEvents={displayExamEvents}
             displayStoryEvents={displayStoryEvents}
             displayJazzClubEvents={displayJazzClubEvents}
-            displayPuzzleEvents={displayPuzzleEvents}></Calendar>
+            displayPuzzleEvents={displayPuzzleEvents}
+            displayClassEvents={displayClassEvents} ></Calendar>
         <Details onClickPreviousDay={() => iterateSelectedDay(false)} windowDimensions={windowDimensions} onClickNextDay={() => iterateSelectedDay(true)} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex}
             displayExamEvents={displayExamEvents}
             displayStoryEvents={displayStoryEvents}
             displayJazzClubEvents={displayJazzClubEvents}
             displayPuzzleEvents={displayPuzzleEvents}
+            displayClassEvents={displayClassEvents}
             displayWeatherDetails={displayWeatherDetails}
             displayFreeTimeDetails={displayFreeTimeDetails} ></Details>
             </div>)

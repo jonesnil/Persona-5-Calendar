@@ -2,7 +2,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import calendarData from './Persona5RoyalCalendarInfo.json'
 
 
-function Calendar({ onDetailsClick, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents }) {
+function Calendar({ onDetailsClick, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents }) {
     function handleClick(weekIndex, dayIndex) {
         onDetailsClick(weekIndex, dayIndex);
     }
@@ -36,7 +36,8 @@ function Calendar({ onDetailsClick, windowDimensions, selectedMonthIndex, select
                             displayExamEvents={displayExamEvents}
                             displayStoryEvents={displayStoryEvents}
                             displayJazzClubEvents={displayJazzClubEvents}
-                            displayPuzzleEvents={displayPuzzleEvents}></CalendarDay>)}
+                            displayPuzzleEvents={displayPuzzleEvents}
+                            displayClassEvents={displayClassEvents}></CalendarDay>)}
                     </tr>
                 )}
             </tbody>
@@ -45,7 +46,7 @@ function Calendar({ onDetailsClick, windowDimensions, selectedMonthIndex, select
 }
 
 
-function CalendarDay({ windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, weekIndex, dayIndex, onCalendarDayClick, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents }) {
+function CalendarDay({ windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, weekIndex, dayIndex, onCalendarDayClick, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents }) {
     var day = calendarData["Months"][selectedMonthIndex]["Weeks"][weekIndex][dayIndex];
     var cellClasses = "arsenal-regular ";
 
@@ -83,14 +84,19 @@ function CalendarDay({ windowDimensions, selectedMonthIndex, selectedWeekIndex, 
                             displayExamEvents={displayExamEvents}
                             displayStoryEvents={displayStoryEvents}
                             displayJazzClubEvents={displayJazzClubEvents}
-                            displayPuzzleEvents={displayPuzzleEvents}></CalendarEvent>)}
+                            displayPuzzleEvents={displayPuzzleEvents}
+                            displayClassEvents={displayClassEvents}></CalendarEvent>)}
                 </ListGroup> : ""
             }
         </td>)
 }
 
-function CalendarEvent({ windowDimensions, event, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents }) {
+function CalendarEvent({ windowDimensions, event, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents }) {
     switch (event["Type"]) {
+        case 'Class':
+            if (!displayClassEvents)
+                return null;
+            break;
         case 'Exam':
             if (!displayExamEvents)
                 return null;

@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import calendarData from './Persona5RoyalCalendarInfo.json'
-function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayWeatherDetails, displayFreeTimeDetails }) {
+function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents, displayWeatherDetails, displayFreeTimeDetails }) {
     var selectedMonth = calendarData["Months"][selectedMonthIndex];
     var selectedDay = calendarData["Months"][selectedMonthIndex]["Weeks"][selectedWeekIndex][selectedDayIndex];
 
@@ -36,7 +36,8 @@ function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selecte
                             displayExamEvents={displayExamEvents}
                             displayStoryEvents={displayStoryEvents}
                             displayJazzClubEvents={displayJazzClubEvents}
-                            displayPuzzleEvents={displayPuzzleEvents} ></CalendarEventDetails>)}
+                            displayPuzzleEvents={displayPuzzleEvents}
+                            displayClassEvents={displayClassEvents}></CalendarEventDetails>)}
                 </ListGroup> : ""
             }
             <WeeklyEventDetails day={selectedDay}></WeeklyEventDetails>
@@ -66,8 +67,12 @@ function DetailsNavbar({ day, month, onClickNextDay, onClickPreviousDay, windowD
     </h5>
 }
 
-function CalendarEventDetails({ event, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents }) {
+function CalendarEventDetails({ event, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents }) {
     switch (event["Type"]) {
+        case 'Class':
+            if (!displayClassEvents)
+                return null;
+            break;
         case 'Exam':
             if (!displayExamEvents)
                 return null;
