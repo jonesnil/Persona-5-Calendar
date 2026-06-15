@@ -18,6 +18,11 @@
     overflow: visible;
 }
 
+.dayOverviewDemo {
+    width: 30%;
+    margin-left: 35%;
+}
+
 .flexSpaceBetween {
     display: flex;
     justify-content: space-between;
@@ -62,6 +67,10 @@
 
 .rotatedText {
     transform: rotate(5deg)
+}
+
+.rotatedTextAlt {
+    transform: rotate(-1deg)
 }
 
 .inlineIcon {
@@ -188,5 +197,5 @@
 }
 
 .Puzzle {
-    background-color: darkgoldenrod !important;
+    background-color: darkorchid !important;
 }
