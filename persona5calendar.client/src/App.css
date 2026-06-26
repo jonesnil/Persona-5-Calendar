@@ -180,6 +180,22 @@
     min-height:10px;
 }
 
+button.accordion-button {
+    /* create a grid */
+    display: grid;
+    /* create colums. 1fr means use available space */
+    grid-template-columns: 1fr max-content max-content;
+    align-items: center;
+    grid-gap: 10px;
+}
+
+.accordion-item {
+    --bs-accordion-btn-bg: #A34C00;
+    --bs-accordion-active-color: var(--bs-body-color);
+    --bs-accordion-active-bg: #A34C00;
+    --bs-accordion-bg: #D16200;
+}
+
 .Exam {
     background-color: blue !important;
 }
@@ -198,4 +214,8 @@
 
 .Puzzle {
     background-color: darkorchid !important;
+}
+
+.TV {
+    background-color: #D16200 !important;
 }

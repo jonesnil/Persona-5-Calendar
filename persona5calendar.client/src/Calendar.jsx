@@ -2,7 +2,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import calendarData from './Persona5RoyalCalendarInfo.json'
 
 
-function Calendar({ onDetailsClick, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents }) {
+function Calendar({ onDetailsClick, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents, displayTVEvents }) {
     function handleClick(weekIndex, dayIndex) {
         onDetailsClick(weekIndex, dayIndex);
     }
@@ -37,7 +37,8 @@ function Calendar({ onDetailsClick, windowDimensions, selectedMonthIndex, select
                             displayStoryEvents={displayStoryEvents}
                             displayJazzClubEvents={displayJazzClubEvents}
                             displayPuzzleEvents={displayPuzzleEvents}
-                            displayClassEvents={displayClassEvents}></CalendarDay>)}
+                            displayClassEvents={displayClassEvents}
+                            displayTVEvents={displayTVEvents}></CalendarDay>)}
                     </tr>
                 )}
             </tbody>
@@ -46,7 +47,7 @@ function Calendar({ onDetailsClick, windowDimensions, selectedMonthIndex, select
 }
 
 
-function CalendarDay({ windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, weekIndex, dayIndex, onCalendarDayClick, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents }) {
+function CalendarDay({ windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, weekIndex, dayIndex, onCalendarDayClick, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents, displayTVEvents }) {
     var day = calendarData["Months"][selectedMonthIndex]["Weeks"][weekIndex][dayIndex];
     var cellClasses = "arsenal-regular ";
 
@@ -85,13 +86,14 @@ function CalendarDay({ windowDimensions, selectedMonthIndex, selectedWeekIndex, 
                             displayStoryEvents={displayStoryEvents}
                             displayJazzClubEvents={displayJazzClubEvents}
                             displayPuzzleEvents={displayPuzzleEvents}
-                            displayClassEvents={displayClassEvents}></CalendarEvent>)}
+                            displayClassEvents={displayClassEvents}
+                            displayTVEvents={displayTVEvents} ></CalendarEvent>)}
                 </ListGroup> : ""
             }
         </td>)
 }
 
-function CalendarEvent({ windowDimensions, event, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents }) {
+function CalendarEvent({ windowDimensions, event, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents, displayTVEvents }) {
     switch (event["Type"]) {
         case 'Class':
             if (!displayClassEvents)
@@ -113,6 +115,9 @@ function CalendarEvent({ windowDimensions, event, displayExamEvents, displayJazz
             if (!displayPuzzleEvents)
                 return null;
             break;
+        case 'TV':
+            if (!displayTVEvents)
+                return null;
     }
 
     return <ListGroup.Item className={"arsenal-bold calendarEventSmall " + event["Type"].replaceAll(' ', '')}>

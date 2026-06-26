@@ -1,7 +1,8 @@
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Accordion from 'react-bootstrap/Accordion';
 import calendarData from './Persona5RoyalCalendarInfo.json'
-function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents, displayWeatherDetails, displayFreeTimeDetails }) {
+function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents, displayTVEvents, displayWeatherDetails, displayFreeTimeDetails }) {
     var selectedMonth = calendarData["Months"][selectedMonthIndex];
     var selectedDay = calendarData["Months"][selectedMonthIndex]["Weeks"][selectedWeekIndex][selectedDayIndex];
 
@@ -37,7 +38,8 @@ function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selecte
                             displayStoryEvents={displayStoryEvents}
                             displayJazzClubEvents={displayJazzClubEvents}
                             displayPuzzleEvents={displayPuzzleEvents}
-                            displayClassEvents={displayClassEvents}></CalendarEventDetails>)}
+                            displayClassEvents={displayClassEvents}
+                            displayTVEvents={displayTVEvents}></CalendarEventDetails>)}
                 </ListGroup> : ""
             }
             <WeeklyEventDetails day={selectedDay}></WeeklyEventDetails>
@@ -67,7 +69,7 @@ function DetailsNavbar({ day, month, onClickNextDay, onClickPreviousDay, windowD
     </h5>
 }
 
-function CalendarEventDetails({ event, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents }) {
+function CalendarEventDetails({ event, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents, displayTVEvents}) {
     switch (event["Type"]) {
         case 'Class':
             if (!displayClassEvents)
@@ -89,6 +91,10 @@ function CalendarEventDetails({ event, displayExamEvents, displayJazzClubEvents,
             if (!displayPuzzleEvents)
                 return null;
             break;
+        case 'TV':
+            if (!displayTVEvents)
+                return null;
+            break;
     }
 
     return (<ListGroup.Item className={"arsenal-bold " + event["Type"].replaceAll(' ', '')}>
@@ -100,6 +106,20 @@ function CalendarEventDetails({ event, displayExamEvents, displayJazzClubEvents,
         <ListGroup>
             {event["ListDetails"] ? event["ListDetails"].map((listItem, index) => <ListGroup.Item key={index}>{listItem}</ListGroup.Item>) : ""}
         </ListGroup>
+        {event["AccordionDetails"] ? event["AccordionDetails"].map((accordion, index) =>
+            <Accordion className="mt-2 mb-3" key={index}>
+                <h4>{accordion["Name"]}<span className="pe-2" style={{ float: "right" }}>&yen;{accordion["Price"]}</span></h4>
+                {accordion["AccordionElements"] ? accordion["AccordionElements"].map((accordionElement, elementIndex) =>
+                    <Accordion.Item eventKey={elementIndex} key={elementIndex}>
+                        <Accordion.Header>
+                            <span>{accordionElement["Header"]}</span>
+                            <span className="me-2">{accordionElement["Type"]}</span>
+                        </Accordion.Header>
+                        <Accordion.Body>
+                            {accordionElement["Body"]}
+                        </Accordion.Body>
+                    </Accordion.Item>) : ""}
+            </Accordion>) : ""}
         <small>{event["Footnote"]}</small>
     </ListGroup.Item>)
 }
