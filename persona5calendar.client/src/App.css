@@ -153,6 +153,20 @@
     height: stretch;
 }
 
+@supports (min-height:-moz-available) {
+    .calendarTable {
+        min-height: 90vh
+    }
+
+    .calendarTable th {
+        height: 1px;
+    }
+
+    .calendarTable td {
+        height: unset;
+    }
+}
+
 .calendar {
     grid-area: calendar;
     overflow-y: auto;
