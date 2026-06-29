@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import './EventTypeTheming.css';
 import '../Content/bootstrap.css'
 import '../Scripts/bootstrap.min.js'
 
@@ -32,13 +33,18 @@ export default function App() {
     const [upPressed, setUpPressed] = useState(false);
     const [downPressed, setDownPressed] = useState(false);
 
+    var eventTypesList = ["Story", "Exam", "JazzClub", "Puzzle", "Class", "TV"];
+    var displayEventSettingsInitial = {};
+    eventTypesList.forEach(eventType => {
+        var displayIfUnset = true;
+        if (eventType == "Story")
+        {
+            displayIfUnset = false;
+        }
+        displayEventSettingsInitial[eventType] = localStorage.getItem(`display${eventType}`) !== null ? localStorage.getItem(`display${eventType}`) === "true" : displayIfUnset;
+    });
 
-    const [displayStoryEvents, setDisplayStoryEvents] = useState(localStorage.getItem("displayStory") !== null ? localStorage.getItem("displayStory") === "true" : false);
-    const [displayExamEvents, setDisplayExamEvents] = useState(localStorage.getItem("displayExam") !== null ? localStorage.getItem("displayExam") === "true" : true);
-    const [displayJazzClubEvents, setDisplayJazzClubEvents] = useState(localStorage.getItem("displayJazzClub") !== null ? localStorage.getItem("displayJazzClub") === "true" : true);
-    const [displayPuzzleEvents, setDisplayPuzzleEvents] = useState(localStorage.getItem("displayPuzzle") !== null ? localStorage.getItem("displayPuzzle") === "true" : true);
-    const [displayClassEvents, setDisplayClassEvents] = useState(localStorage.getItem("displayClass") !== null ? localStorage.getItem("displayClass") === "true" : true);
-    const [displayTVEvents, setDisplayTVEvents] = useState(localStorage.getItem("displayTV") !== null ? localStorage.getItem("displayTV") === "true" : true);
+    const [displayEventsSettings, setDisplayEventsSettings] = useState(displayEventSettingsInitial);
 
     const [displayWeatherDetails, setDisplayWeatherDetails] = useState(localStorage.getItem("displayWeather") !== null ? localStorage.getItem("displayWeather") === "true" : true);
     const [displayFreeTimeDetails, setDisplayFreeTimeDetails] = useState(localStorage.getItem("displayFreeTime") !== null ? localStorage.getItem("displayFreeTime") === "true" : true);
@@ -218,28 +224,14 @@ export default function App() {
         <NavBar onMonthSelect={handleMonthSelectClick}
             selectedMonthIndex={selectedMonthIndex}
             windowDimensions={windowDimensions}
-            displayExamEvents={displayExamEvents} setDisplayExamEvents={setDisplayExamEvents}
-            displayStoryEvents={displayStoryEvents} setDisplayStoryEvents={setDisplayStoryEvents}
-            displayJazzClubEvents={displayJazzClubEvents} setDisplayJazzClubEvents={setDisplayJazzClubEvents}
-            displayPuzzleEvents={displayPuzzleEvents} setDisplayPuzzleEvents={setDisplayPuzzleEvents}
-            displayClassEvents={displayClassEvents} setDisplayClassEvents={setDisplayClassEvents}
-            displayTVEvents={displayTVEvents} setDisplayTVEvents={setDisplayTVEvents}
+            displayEventsSettings={displayEventsSettings}
+            setDisplayEventsSettings={setDisplayEventsSettings}
             displayWeatherDetails={displayWeatherDetails} setDisplayWeatherDetails={setDisplayWeatherDetails}
             displayFreeTimeDetails={displayFreeTimeDetails} setDisplayFreeTimeDetails={setDisplayFreeTimeDetails}></NavBar>
         <Calendar onDetailsClick={displayDetails} windowDimensions={windowDimensions} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex}
-            displayExamEvents={displayExamEvents}
-            displayStoryEvents={displayStoryEvents}
-            displayJazzClubEvents={displayJazzClubEvents}
-            displayPuzzleEvents={displayPuzzleEvents}
-            displayClassEvents={displayClassEvents}
-            displayTVEvents={displayTVEvents} ></Calendar>
+            displayEventsSettings={displayEventsSettings} ></Calendar>
         <Details onClickPreviousDay={() => iterateSelectedDay(false)} windowDimensions={windowDimensions} onClickNextDay={() => iterateSelectedDay(true)} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex}
-            displayExamEvents={displayExamEvents}
-            displayStoryEvents={displayStoryEvents}
-            displayJazzClubEvents={displayJazzClubEvents}
-            displayPuzzleEvents={displayPuzzleEvents}
-            displayClassEvents={displayClassEvents}
-            displayTVEvents={displayTVEvents}
+            displayEventsSettings={displayEventsSettings}
             displayWeatherDetails={displayWeatherDetails}
             displayFreeTimeDetails={displayFreeTimeDetails} ></Details>
             </div>)

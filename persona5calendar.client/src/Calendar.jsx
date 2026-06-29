@@ -2,7 +2,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import calendarData from './Persona5RoyalCalendarInfo.json'
 
 
-function Calendar({ onDetailsClick, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents, displayTVEvents }) {
+function Calendar({ onDetailsClick, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, displayEventsSettings}) {
     function handleClick(weekIndex, dayIndex) {
         onDetailsClick(weekIndex, dayIndex);
     }
@@ -33,12 +33,7 @@ function Calendar({ onDetailsClick, windowDimensions, selectedMonthIndex, select
                 {calendarData["Months"][selectedMonthIndex]["Weeks"].map((week, weekIndex) =>
                     <tr key={weekIndex}>
                         {week.map((day, dayIndex) => <CalendarDay key={dayIndex} windowDimensions={windowDimensions} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex} weekIndex={weekIndex} dayIndex={dayIndex} onCalendarDayClick={() => handleClick(weekIndex, dayIndex)}
-                            displayExamEvents={displayExamEvents}
-                            displayStoryEvents={displayStoryEvents}
-                            displayJazzClubEvents={displayJazzClubEvents}
-                            displayPuzzleEvents={displayPuzzleEvents}
-                            displayClassEvents={displayClassEvents}
-                            displayTVEvents={displayTVEvents}></CalendarDay>)}
+                            displayEventsSettings={displayEventsSettings}></CalendarDay>)}
                     </tr>
                 )}
             </tbody>
@@ -47,7 +42,7 @@ function Calendar({ onDetailsClick, windowDimensions, selectedMonthIndex, select
 }
 
 
-function CalendarDay({ windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, weekIndex, dayIndex, onCalendarDayClick, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents, displayTVEvents }) {
+function CalendarDay({ windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, weekIndex, dayIndex, onCalendarDayClick, displayEventsSettings}) {
     var day = calendarData["Months"][selectedMonthIndex]["Weeks"][weekIndex][dayIndex];
     var cellClasses = "arsenal-regular ";
 
@@ -82,43 +77,15 @@ function CalendarDay({ windowDimensions, selectedMonthIndex, selectedWeekIndex, 
                 <ListGroup className="fs-6">
                     {day["Events"].map((event) =>
                         <CalendarEvent windowDimensions={windowDimensions} key={event["Title"]} event={event}
-                            displayExamEvents={displayExamEvents}
-                            displayStoryEvents={displayStoryEvents}
-                            displayJazzClubEvents={displayJazzClubEvents}
-                            displayPuzzleEvents={displayPuzzleEvents}
-                            displayClassEvents={displayClassEvents}
-                            displayTVEvents={displayTVEvents} ></CalendarEvent>)}
+                            displayEventsSettings={displayEventsSettings}></CalendarEvent>)}
                 </ListGroup> : ""
             }
         </td>)
 }
 
-function CalendarEvent({ windowDimensions, event, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents, displayTVEvents }) {
-    switch (event["Type"]) {
-        case 'Class':
-            if (!displayClassEvents)
-                return null;
-            break;
-        case 'Exam':
-            if (!displayExamEvents)
-                return null;
-            break;
-        case 'Jazz Club':
-            if (!displayJazzClubEvents)
-                return null;
-            break;
-        case 'Story':
-            if (!displayStoryEvents)
-                return null;
-            break;
-        case 'Puzzle':
-            if (!displayPuzzleEvents)
-                return null;
-            break;
-        case 'TV':
-            if (!displayTVEvents)
-                return null;
-    }
+function CalendarEvent({ windowDimensions, event, displayEventsSettings }) {
+    if (!displayEventsSettings[event["Type"]])
+        return null;
 
     return <ListGroup.Item className={"arsenal-bold calendarEventSmall " + event["Type"].replaceAll(' ', '')}>
         {windowDimensions.width <= 1024 ? null : event["Title"]}

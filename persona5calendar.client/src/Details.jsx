@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Accordion from 'react-bootstrap/Accordion';
 import calendarData from './Persona5RoyalCalendarInfo.json'
-function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents, displayTVEvents, displayWeatherDetails, displayFreeTimeDetails }) {
+function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, displayEventsSettings, displayWeatherDetails, displayFreeTimeDetails }) {
     var selectedMonth = calendarData["Months"][selectedMonthIndex];
     var selectedDay = calendarData["Months"][selectedMonthIndex]["Weeks"][selectedWeekIndex][selectedDayIndex];
 
@@ -34,12 +34,7 @@ function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selecte
                 <ListGroup className="fs-6 arsenal-regular mb-2" style={{ clear: "both", display: "block" }}>
                     {selectedDay["Events"].map((event) =>
                         <CalendarEventDetails key={event["Title"]} event={event}
-                            displayExamEvents={displayExamEvents}
-                            displayStoryEvents={displayStoryEvents}
-                            displayJazzClubEvents={displayJazzClubEvents}
-                            displayPuzzleEvents={displayPuzzleEvents}
-                            displayClassEvents={displayClassEvents}
-                            displayTVEvents={displayTVEvents}></CalendarEventDetails>)}
+                            displayEventsSettings={displayEventsSettings}></CalendarEventDetails>)}
                 </ListGroup> : ""
             }
             <WeeklyEventDetails day={selectedDay}></WeeklyEventDetails>
@@ -69,33 +64,9 @@ function DetailsNavbar({ day, month, onClickNextDay, onClickPreviousDay, windowD
     </h5>
 }
 
-function CalendarEventDetails({ event, displayExamEvents, displayJazzClubEvents, displayPuzzleEvents, displayStoryEvents, displayClassEvents, displayTVEvents}) {
-    switch (event["Type"]) {
-        case 'Class':
-            if (!displayClassEvents)
-                return null;
-            break;
-        case 'Exam':
-            if (!displayExamEvents)
-                return null;
-            break;
-        case 'Jazz Club':
-            if (!displayJazzClubEvents)
-                return null;
-            break;
-        case 'Story':
-            if (!displayStoryEvents)
-                return null;
-            break;
-        case 'Puzzle':
-            if (!displayPuzzleEvents)
-                return null;
-            break;
-        case 'TV':
-            if (!displayTVEvents)
-                return null;
-            break;
-    }
+function CalendarEventDetails({ event, displayEventsSettings }) {
+    if (!displayEventsSettings[event["Type"]])
+        return null;
 
     return (<ListGroup.Item className={"arsenal-bold " + event["Type"].replaceAll(' ', '')}>
         <div className="d-flex w-100 justify-content-between">
