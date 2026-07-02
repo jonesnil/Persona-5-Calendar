@@ -27,8 +27,8 @@ function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selecte
             <DetailsNavbar day={selectedDay} month={selectedMonth} onClickNextDay={onClickNextDay} onClickPreviousDay={onClickPreviousDay} windowDimensions={windowDimensions}></DetailsNavbar>
         </div>
         <div className="card-body detailsContents">
-            <WeatherDetails day={selectedDay} dayTime={true} displayWeatherDetails={displayWeatherDetails}></WeatherDetails>
-            <WeatherDetails day={selectedDay} dayTime={false} displayWeatherDetails={displayWeatherDetails}></WeatherDetails>
+            <WeatherDetails day={selectedDay} dayTime={true} month={selectedMonth} displayWeatherDetails={displayWeatherDetails}></WeatherDetails>
+            <WeatherDetails day={selectedDay} dayTime={false} month={selectedMonth} displayWeatherDetails={displayWeatherDetails}></WeatherDetails>
             <FreeTimeDetails day={selectedDay} displayFreeTimeDetails={displayFreeTimeDetails}></FreeTimeDetails>
             {("Events" in selectedDay && selectedDay["Events"].length > 0) ?
                 <ListGroup className="fs-6 arsenal-regular mb-2" style={{ clear: "both", display: "block" }}>
@@ -94,7 +94,7 @@ function CalendarEventDetails({ event, displayEventsSettings }) {
         <small>{event["Footnote"]}</small>
     </ListGroup.Item>)
 }
-function WeatherDetails({ day, dayTime, displayWeatherDetails }) {
+function WeatherDetails({ day, dayTime, month, displayWeatherDetails }) {
     var headerText;
     var statusEffects = [];
     var weatherSlot = day["WeatherDay"];
@@ -110,11 +110,20 @@ function WeatherDetails({ day, dayTime, displayWeatherDetails }) {
     }
 
     if (timeSlot === "Free") {
+        var dinerOpen = true;
+        if (month["Month"] == "April" ||
+            (month["Month"] == "May" && day["Date"] < 6))
+        {
+            dinerOpen = false;
+        }
+
         switch (weatherSlot) {
             case 'Rain':
                 if (dayTime) {
-                    headerText = "Rainy Day";
-                    statusEffects.push("Studying at Diner gives +3 Knowledge");
+                    if (dinerOpen) {
+                        headerText = "Rainy Day";
+                        statusEffects.push("Studying at Diner gives +3 Knowledge");
+                    }
                 }
                 else {
                     headerText = "Rainy Night";
@@ -127,8 +136,8 @@ function WeatherDetails({ day, dayTime, displayWeatherDetails }) {
                     headerText = "Torrential Rain";
                     statusEffects.push("Mementos Effect: Higher chance of rare/treasure shadows");
                     statusEffects.push("Mementos Effect: More treasure chests");
-                    statusEffects.push("Studying at Diner gives +3 Knowledge");
-
+                    if (dinerOpen)
+                        statusEffects.push("Studying at Diner gives +3 Knowledge");
                 }
                 else {
                     headerText = "Rainy Night";
@@ -139,7 +148,8 @@ function WeatherDetails({ day, dayTime, displayWeatherDetails }) {
             case 'Snow':
                 if (dayTime) {
                     headerText = "Snowy Day";
-                    statusEffects.push("Studying at Diner gives +3 Knowledge");
+                    if (dinerOpen)
+                        statusEffects.push("Studying at Diner gives +3 Knowledge");
                 }
                 else {
                     headerText = "Snowy Night";
@@ -163,7 +173,8 @@ function WeatherDetails({ day, dayTime, displayWeatherDetails }) {
                 if (dayTime) {
                     headerText = "Heat Wave";
                     statusEffects.push("Mementos Effect: Shadows may start combat with Burn");
-                    statusEffects.push("Studying at Diner gives +3 Knowledge");
+                    if(dinerOpen)
+                        statusEffects.push("Studying at Diner gives +3 Knowledge");
                 }
                 else {
                     headerText = "Tropical Night";
@@ -175,7 +186,8 @@ function WeatherDetails({ day, dayTime, displayWeatherDetails }) {
                 if (dayTime) {
                     headerText = "Heat Wave";
                     statusEffects.push("Mementos Effect: Shadows may start combat with Burn");
-                    statusEffects.push("Studying at Diner gives +3 Knowledge");
+                    if(dinerOpen)
+                        statusEffects.push("Studying at Diner gives +3 Knowledge");
                 }
                 else {
                     headerText = "Tropical Night";
@@ -187,7 +199,8 @@ function WeatherDetails({ day, dayTime, displayWeatherDetails }) {
                 if (dayTime) {
                     headerText = "Cold Day";
                     statusEffects.push("Mementos Effect: Shadows may start combat with Freeze");
-                    statusEffects.push("Studying at Diner gives +3 Knowledge");
+                    if(dinerOpen)
+                        statusEffects.push("Studying at Diner gives +3 Knowledge");
                 }
                 else {
                     headerText = "Cold Night";

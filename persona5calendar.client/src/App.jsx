@@ -24,16 +24,22 @@ var upPressedDownLast = 0;
 var downPressedDownLast = 0;
 export default function App() {
 
-    const [selectedMonthIndex, setSelectedMonthIndex] = useState(0);
-    const [selectedWeekIndex, setSelectedWeekIndex] = useState(0);
-    const [selectedDayIndex, setSelectedDayIndex] = useState(0);
+    const [selectedMonthIndex, setSelectMonthIndex] = useState(localStorage.getItem("monthIndex") !== null ?
+                                                             parseInt(localStorage.getItem("monthIndex")) :
+                                                             0);
+    const [selectedWeekIndex, setSelectWeekIndex] = useState(localStorage.getItem("weekIndex") !== null ?
+                                                             parseInt(localStorage.getItem("weekIndex")) :
+                                                             1);
+    const [selectedDayIndex, setSelectedDayIndex] = useState(localStorage.getItem("dayIndex") !== null ?
+                                                             parseInt(localStorage.getItem("dayIndex")) :
+                                                             6);
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
     const [backPressed, setBackPressed] = useState(false);
     const [forwardPressed, setForwardPressed] = useState(false);
     const [upPressed, setUpPressed] = useState(false);
     const [downPressed, setDownPressed] = useState(false);
 
-    var eventTypesList = ["Story", "Exam", "JazzClub", "Puzzle", "Class", "TV", "Subway"];
+    var eventTypesList = ["Story", "Exam", "JazzClub", "Puzzle", "Class", "TV", "Subway", "Crane"];
     var displayEventSettingsInitial = {};
     eventTypesList.forEach(eventType => {
         var displayIfUnset = true;
@@ -115,29 +121,44 @@ export default function App() {
         }
     }, []);
 
+    function handleSelectMonthIndex(index) {
+        localStorage.setItem('monthIndex', index);
+        setSelectMonthIndex(index);
+    }
+
+    function handleSelectWeekIndex(index) {
+        localStorage.setItem('weekIndex', index);
+        setSelectWeekIndex(index);
+    }
+
+    function handleSelectDayIndex(index) {
+        localStorage.setItem('dayIndex', index);
+        setSelectedDayIndex(index);
+    }
+
     function displayDetails(weekIndex, dayIndex) {
-        setSelectedWeekIndex(weekIndex);
-        setSelectedDayIndex(dayIndex);
+        handleSelectWeekIndex(weekIndex);
+        handleSelectDayIndex(dayIndex);
     }
 
     function iterateSelectedMonth(next) {
         var months = calendarData["Months"];
         if (next) {
             if (months.length - 1 > selectedMonthIndex) {
-                setSelectedMonthIndex(selectedMonthIndex + 1);
+                handleSelectMonthIndex(selectedMonthIndex + 1);
             }
         }
         else {
             if (selectedMonthIndex > 0) {
-                setSelectedMonthIndex(selectedMonthIndex - 1);
+                handleSelectMonthIndex(selectedMonthIndex - 1);
             }
         }
     }
 
     function handleMonthSelectClick(monthSelected) {
-        setSelectedMonthIndex(monthSelected);
-        setSelectedWeekIndex(0);
-        setSelectedDayIndex(calendarData["Months"][monthSelected]["MonthBeginIndex"]);
+        handleSelectMonthIndex(monthSelected);
+        handleSelectWeekIndex(0);
+        handleSelectDayIndex(calendarData["Months"][monthSelected]["MonthBeginIndex"]);
     }
     function iterateSelectedDay(next) {
         var weeksInMonth = calendarData["Months"][selectedMonthIndex]["Weeks"];
@@ -146,41 +167,41 @@ export default function App() {
 
         if (next) {
             if (selectedWeek.length - 1 > selectedDayIndex) {
-                setSelectedDayIndex(selectedDayIndex + 1);
+                handleSelectDayIndex(selectedDayIndex + 1);
             }
             else if (weeksInMonth.length - 1 > selectedWeekIndex) {
-                setSelectedWeekIndex(selectedWeekIndex + 1);
-                setSelectedDayIndex(0);
+                handleSelectWeekIndex(selectedWeekIndex + 1);
+                handleSelectDayIndex(0);
             }
             else if (calendarData["Months"].length - 1 > selectedMonthIndex) {
                 iterateSelectedMonth(true);
                 if (selectedDay["OutOfMonth"]) {
-                    setSelectedWeekIndex(1);
+                    handleSelectWeekIndex(1);
                 }
                 else { 
-                    setSelectedWeekIndex(0);
+                    handleSelectWeekIndex(0);
                 }
-                setSelectedDayIndex(0);
+                handleSelectDayIndex(0);
             }
         }
         else {
             if (selectedDayIndex > 0) {
-                setSelectedDayIndex(selectedDayIndex - 1);
+                handleSelectDayIndex(selectedDayIndex - 1);
             }
             else if (selectedWeekIndex > 0) {
-                setSelectedWeekIndex(selectedWeekIndex - 1);
-                setSelectedDayIndex(weeksInMonth[selectedWeekIndex].length - 1);
+                handleSelectWeekIndex(selectedWeekIndex - 1);
+                handleSelectDayIndex(weeksInMonth[selectedWeekIndex].length - 1);
             }
             else if (selectedMonthIndex > 0) {
                 iterateSelectedMonth(false);
                 var newWeeksInMonth = calendarData["Months"][selectedMonthIndex - 1]["Weeks"];
                 if (selectedDay["OutOfMonth"]) {
-                    setSelectedWeekIndex(newWeeksInMonth.length - 2);
+                    handleSelectWeekIndex(newWeeksInMonth.length - 2);
                 }
                 else {
-                    setSelectedWeekIndex(newWeeksInMonth.length - 1);
+                    handleSelectWeekIndex(newWeeksInMonth.length - 1);
                 }
-                setSelectedDayIndex(6);
+                handleSelectDayIndex(6);
             }
         }
     }
@@ -190,12 +211,12 @@ export default function App() {
 
         if (next) {
             if (weeksInMonth.length - 1 > selectedWeekIndex) {
-                setSelectedWeekIndex(selectedWeekIndex + 1);
+                handleSelectWeekIndex(selectedWeekIndex + 1);
             }
         }
         else {
             if (selectedWeekIndex > 0) {
-                setSelectedWeekIndex(selectedWeekIndex - 1);
+                handleSelectWeekIndex(selectedWeekIndex - 1);
             }
         }
     }
