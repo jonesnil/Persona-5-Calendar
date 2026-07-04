@@ -1,8 +1,13 @@
+import ExtrapolateEventInformation from './EventHelper.js'
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Accordion from 'react-bootstrap/Accordion';
+
+import Spoiler from './Spoiler';
+
 import calendarData from './Persona5RoyalCalendarInfo.json'
-function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, displayEventsSettings, displayWeatherDetails, displayFreeTimeDetails }) {
+
+function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, displayEventsSettings, displayWeatherDetails, displayFreeTimeDetails, displaySpoilerAnswers }) {
     var selectedMonth = calendarData["Months"][selectedMonthIndex];
     var selectedDay = calendarData["Months"][selectedMonthIndex]["Weeks"][selectedWeekIndex][selectedDayIndex];
 
@@ -34,7 +39,8 @@ function Details({ onClickPreviousDay, onClickNextDay, windowDimensions, selecte
                 <ListGroup className="fs-6 arsenal-regular mb-2" style={{ clear: "both", display: "block" }}>
                     {selectedDay["Events"].map((event) =>
                         <CalendarEventDetails key={event["Title"]} event={event}
-                            displayEventsSettings={displayEventsSettings}></CalendarEventDetails>)}
+                            displayEventsSettings={displayEventsSettings}
+                            displaySpoilerAnswers={displaySpoilerAnswers}></CalendarEventDetails>)}
                 </ListGroup> : ""
             }
             <WeeklyEventDetails day={selectedDay}></WeeklyEventDetails>
@@ -64,18 +70,20 @@ function DetailsNavbar({ day, month, onClickNextDay, onClickPreviousDay, windowD
     </h5>
 }
 
-function CalendarEventDetails({ event, displayEventsSettings }) {
+function CalendarEventDetails({ event, displayEventsSettings, displaySpoilerAnswers }) {
     if (!displayEventsSettings[event["Type"]])
         return null;
+
+    event = ExtrapolateEventInformation(event);
 
     return (<ListGroup.Item className={"arsenal-bold " + event["Type"].replaceAll(' ', '')}>
         <div className="d-flex w-100 justify-content-between">
             <h5 className="mb-1">{event["Title"]}</h5>
             <small>{event["Type"]}</small>
         </div>
-        <p className="mb-1">{event["Details"]}</p>
+        <p className="mb-1">{event["Details"]} <Spoiler key={event["Answer"]} spoilerText={event["Answer"]} displaySpoilerAnswers={displaySpoilerAnswers}></Spoiler></p>
         <ListGroup>
-            {event["ListDetails"] ? event["ListDetails"].map((listItem, index) => <ListGroup.Item key={index}>{listItem}</ListGroup.Item>) : ""}
+            {event["AnswerList"] ? event["AnswerList"].map((listItem, index) => <ListGroup.Item key={index}><Spoiler key={listItem} spoilerText={listItem} displaySpoilerAnswers={displaySpoilerAnswers}></Spoiler></ListGroup.Item>) : ""}
         </ListGroup>
         {event["AccordionDetails"] ? event["AccordionDetails"].map((accordion, index) =>
             <Accordion className="mt-2 mb-3" key={index}>

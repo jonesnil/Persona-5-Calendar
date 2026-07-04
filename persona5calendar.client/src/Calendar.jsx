@@ -1,6 +1,6 @@
+import ExtrapolateEventInformation from './EventHelper.js'
 import ListGroup from 'react-bootstrap/ListGroup';
 import calendarData from './Persona5RoyalCalendarInfo.json'
-
 
 function Calendar({ onDetailsClick, windowDimensions, selectedMonthIndex, selectedWeekIndex, selectedDayIndex, displayEventsSettings}) {
     function handleClick(weekIndex, dayIndex) {
@@ -86,6 +86,8 @@ function CalendarDay({ windowDimensions, selectedMonthIndex, selectedWeekIndex, 
 function CalendarEvent({ windowDimensions, event, displayEventsSettings }) {
     if (!displayEventsSettings[event["Type"]])
         return null;
+
+    event = ExtrapolateEventInformation(event);
 
     return <ListGroup.Item className={"arsenal-bold calendarEventSmall " + event["Type"].replaceAll(' ', '')}>
         {windowDimensions.width <= 1024 ? null : event["Title"]}

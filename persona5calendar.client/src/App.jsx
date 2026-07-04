@@ -39,7 +39,7 @@ export default function App() {
     const [upPressed, setUpPressed] = useState(false);
     const [downPressed, setDownPressed] = useState(false);
 
-    var eventTypesList = ["Story", "Exam", "JazzClub", "Puzzle", "Class", "TV", "Subway", "Crane"];
+    var eventTypesList = ["Story", "Exam", "Jazz Club", "Puzzle", "Class", "TV", "Subway", "Crane"];
     var displayEventSettingsInitial = {};
     eventTypesList.forEach(eventType => {
         var displayIfUnset = true;
@@ -47,13 +47,14 @@ export default function App() {
         {
             displayIfUnset = false;
         }
-        displayEventSettingsInitial[eventType] = localStorage.getItem(`display${eventType}`) !== null ? localStorage.getItem(`display${eventType}`) === "true" : displayIfUnset;
+        displayEventSettingsInitial[eventType] = localStorage.getItem(`display${eventType.replaceAll(' ', '')}`) !== null ? localStorage.getItem(`display${eventType.replaceAll(' ', '')}`) === "true" : displayIfUnset;
     });
 
     const [displayEventsSettings, setDisplayEventsSettings] = useState(displayEventSettingsInitial);
 
     const [displayWeatherDetails, setDisplayWeatherDetails] = useState(localStorage.getItem("displayWeather") !== null ? localStorage.getItem("displayWeather") === "true" : true);
     const [displayFreeTimeDetails, setDisplayFreeTimeDetails] = useState(localStorage.getItem("displayFreeTime") !== null ? localStorage.getItem("displayFreeTime") === "true" : true);
+    const [displaySpoilerAnswers, setDisplaySpoilerAnswers] = useState(localStorage.getItem("displaySpoilerAnswers") !== null ? localStorage.getItem("displaySpoilerAnswers") === "true" : false);
 
     useEffect(() => {
         const handleKeyDown = (event) => {
@@ -248,12 +249,14 @@ export default function App() {
             displayEventsSettings={displayEventsSettings}
             setDisplayEventsSettings={setDisplayEventsSettings}
             displayWeatherDetails={displayWeatherDetails} setDisplayWeatherDetails={setDisplayWeatherDetails}
-            displayFreeTimeDetails={displayFreeTimeDetails} setDisplayFreeTimeDetails={setDisplayFreeTimeDetails}></NavBar>
+            displayFreeTimeDetails={displayFreeTimeDetails} setDisplayFreeTimeDetails={setDisplayFreeTimeDetails}
+            displaySpoilerAnswers={displaySpoilerAnswers} setDisplaySpoilerAnswers={setDisplaySpoilerAnswers}></NavBar>
         <Calendar onDetailsClick={displayDetails} windowDimensions={windowDimensions} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex}
             displayEventsSettings={displayEventsSettings} ></Calendar>
         <Details onClickPreviousDay={() => iterateSelectedDay(false)} windowDimensions={windowDimensions} onClickNextDay={() => iterateSelectedDay(true)} selectedMonthIndex={selectedMonthIndex} selectedWeekIndex={selectedWeekIndex} selectedDayIndex={selectedDayIndex}
             displayEventsSettings={displayEventsSettings}
             displayWeatherDetails={displayWeatherDetails}
-            displayFreeTimeDetails={displayFreeTimeDetails} ></Details>
+            displayFreeTimeDetails={displayFreeTimeDetails}
+            displaySpoilerAnswers={displaySpoilerAnswers} ></Details>
             </div>)
 }

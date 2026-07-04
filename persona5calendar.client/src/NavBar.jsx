@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Modal from 'react-bootstrap/Modal';
 import calendarData from './Persona5RoyalCalendarInfo.json'
-function NavBar({ onMonthSelect, selectedMonthIndex, windowDimensions, displayEventsSettings, displayWeatherDetails, displayFreeTimeDetails, setDisplayEventsSettings, setDisplayWeatherDetails, setDisplayFreeTimeDetails }) {
+function NavBar({ onMonthSelect, selectedMonthIndex, windowDimensions, displayEventsSettings, displayWeatherDetails, displayFreeTimeDetails, displaySpoilerAnswers, setDisplayEventsSettings, setDisplayWeatherDetails, setDisplayFreeTimeDetails, setDisplaySpoilerAnswers }) {
     const [showSettings, setShowSettings] = useState(false);
     const [showInfo, setShowInfo] = useState(false);
 
@@ -34,12 +34,13 @@ function NavBar({ onMonthSelect, selectedMonthIndex, windowDimensions, displayEv
             displayEventsSettings={displayEventsSettings}
             setDisplayEventsSettings={setDisplayEventsSettings}
             displayWeatherDetails={displayWeatherDetails} setDisplayWeatherDetails={setDisplayWeatherDetails}
-            displayFreeTimeDetails={displayFreeTimeDetails} setDisplayFreeTimeDetails={setDisplayFreeTimeDetails}></EventOptionsModal>
+            displayFreeTimeDetails={displayFreeTimeDetails} setDisplayFreeTimeDetails={setDisplayFreeTimeDetails}
+            displaySpoilerAnswers={displaySpoilerAnswers} setDisplaySpoilerAnswers={setDisplaySpoilerAnswers} ></EventOptionsModal>
         <InfoModal showInfo={showInfo} handleCloseInfo={handleCloseInfo}></InfoModal>
     </h1>
 }
 
-function EventOptionsModal({ showSettings, handleCloseSettings, displayEventsSettings, displayWeatherDetails, displayFreeTimeDetails, setDisplayEventsSettings, setDisplayWeatherDetails, setDisplayFreeTimeDetails }) {
+function EventOptionsModal({ showSettings, handleCloseSettings, displayEventsSettings, displayWeatherDetails, displayFreeTimeDetails, displaySpoilerAnswers, setDisplayEventsSettings, setDisplayWeatherDetails, setDisplayFreeTimeDetails, setDisplaySpoilerAnswers }) {
     return (
         <>
             <Modal show={showSettings} onHide={handleCloseSettings} data-bs-theme="dark">
@@ -49,7 +50,7 @@ function EventOptionsModal({ showSettings, handleCloseSettings, displayEventsSet
                     <h3>Event Settings:</h3>
                     <ListGroup className="arsenal-bold mb-3">
                         {Object.keys(displayEventsSettings).map((eventType, index) =>
-                            <ListGroup.Item key={index} className={eventType}>
+                            <ListGroup.Item key={index} className={eventType.replaceAll(' ', '')}>
                                 <Form.Check type="checkbox" id={`${eventType}EventsCheck`} checked={displayEventsSettings[eventType]}
                                     label={`Display ${eventType == "JazzClub" ? "Jazz Club" : eventType} Events${eventType == "Story" ? " (Spoilers!)" : ""}`}
                                 onChange={e => {
@@ -57,7 +58,7 @@ function EventOptionsModal({ showSettings, handleCloseSettings, displayEventsSet
                                     ...displayEventsSettings,
                                     [eventType]: e.target.checked
                                     }));
-                                    localStorage.setItem(`display${eventType}`, e.target.checked);
+                                    localStorage.setItem(`display${eventType.replaceAll(' ', '') }`, e.target.checked);
                                 }
                             }/>
                         </ListGroup.Item>)
@@ -79,6 +80,14 @@ function EventOptionsModal({ showSettings, handleCloseSettings, displayEventsSet
                                 onChange={e => {
                                     setDisplayFreeTimeDetails(e.target.checked);
                                     localStorage.setItem("displayFreeTime", e.target.checked);
+                                }} />
+                        </ListGroup.Item>
+                        <ListGroup.Item>
+                            <Form.Check type="checkbox" id="SpoilerAnswersCheck" checked={displaySpoilerAnswers}
+                                label="Display Answers (Quizzes, Crosswords)"
+                                onChange={e => {
+                                    setDisplaySpoilerAnswers(e.target.checked);
+                                    localStorage.setItem("displaySpoilerAnswers", e.target.checked);
                                 }} />
                         </ListGroup.Item>
                     </ListGroup>

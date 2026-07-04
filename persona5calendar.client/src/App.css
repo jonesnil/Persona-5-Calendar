@@ -209,3 +209,13 @@ button.accordion-button {
     --bs-accordion-active-bg: #A34C00;
     --bs-accordion-bg: #D16200;
 }
+
+.spoilerHide {
+    color: black;
+    background-color: black;
+}
+
+.spoilerReveal {
+    color: white;
+    background-color: black;
+}
