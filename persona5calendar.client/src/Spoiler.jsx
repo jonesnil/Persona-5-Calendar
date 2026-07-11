@@ -10,9 +10,9 @@ function Spoiler({ spoilerText, displaySpoilerAnswers }) {
     var classes = "";
 
     if (!displaySpoilerAnswers) {
-        classes = showSpoiler ? "spoilerReveal" : "spoilerHide";
-        classes += " w-75 d-block"
+        classes += showSpoiler ? "spoilerReveal" : "spoilerHide";
     }
+    classes += " mt-1 w-75 d-block libre-franklin-bold"
     return (
         <span className={classes} onClick={onSpoilerClick}>
             {spoilerText}

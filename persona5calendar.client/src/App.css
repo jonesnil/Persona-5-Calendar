@@ -203,11 +203,22 @@ button.accordion-button {
     grid-gap: 10px;
 }
 
-.accordion-item {
+.innerAccordionItem {
     --bs-accordion-btn-bg: #A34C00;
     --bs-accordion-active-color: var(--bs-body-color);
     --bs-accordion-active-bg: #A34C00;
     --bs-accordion-bg: #D16200;
+}
+
+.outerAccordionItem {
+    --bs-accordion-btn-bg: #783600;
+    --bs-accordion-active-color: var(--bs-body-color);
+    --bs-accordion-active-bg: #783600;
+    --bs-accordion-bg: #8D4100;
+}
+
+.outerAccordion {
+    padding: 10px;
 }
 
 .spoilerHide {

@@ -85,19 +85,29 @@ function CalendarEventDetails({ event, displayEventsSettings, displaySpoilerAnsw
         <ListGroup>
             {event["AnswerList"] ? event["AnswerList"].map((listItem, index) => <ListGroup.Item key={index}><Spoiler key={listItem} spoilerText={listItem} displaySpoilerAnswers={displaySpoilerAnswers}></Spoiler></ListGroup.Item>) : ""}
         </ListGroup>
-        {event["AccordionDetails"] ? event["AccordionDetails"].map((accordion, index) =>
-            <Accordion className="mt-2 mb-3" key={index}>
-                <h4>{accordion["Name"]}<span className="pe-2" style={{ float: "right" }}>&yen;{accordion["Price"]}</span></h4>
-                {accordion["AccordionElements"] ? accordion["AccordionElements"].map((accordionElement, elementIndex) =>
-                    <Accordion.Item eventKey={elementIndex} key={elementIndex}>
+        {event["AccordionDetails"] ?
+            (<Accordion className="outerAccordion mt-2">
+                {event["AccordionDetails"].map((accordion, index) =>
+                    <Accordion.Item className="outerAccordionItem" eventKey={index} key={index}>
                         <Accordion.Header>
-                            <span>{accordionElement["Header"]}</span>
-                            <span className="me-2">{accordionElement["Type"]}</span>
+                            <span>{accordion["Name"]}</span>
+                            {accordion["Price"] ? <span className="me-2">&yen;{accordion["Price"]}</span> : ""}
                         </Accordion.Header>
                         <Accordion.Body>
-                            {accordionElement["Body"]}
+                            <Accordion key={index}>
+                                {accordion["AccordionElements"] ? accordion["AccordionElements"].map((accordionElement, elementIndex) =>
+                                    <Accordion.Item className="innerAccordionItem" eventKey={elementIndex} key={elementIndex}>
+                                        <Accordion.Header>
+                                            <span>{accordionElement["Header"]}</span>
+                                            <span className="me-2">{accordionElement["Type"]}</span>
+                                        </Accordion.Header>
+                                        <Accordion.Body>
+                                            {accordionElement["Body"]}
+                                        </Accordion.Body>
+                                    </Accordion.Item>) : ""}
+                            </Accordion>
                         </Accordion.Body>
-                    </Accordion.Item>) : ""}
+                    </Accordion.Item>)}
             </Accordion>) : ""}
         <small>{event["Footnote"]}</small>
     </ListGroup.Item>)

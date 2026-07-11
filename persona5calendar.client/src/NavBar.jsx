@@ -45,9 +45,10 @@ function EventOptionsModal({ showSettings, handleCloseSettings, displayEventsSet
         <>
             <Modal show={showSettings} onHide={handleCloseSettings} data-bs-theme="dark">
                 <Modal.Header closeButton>
+                    <span className="fs-4 boxedText rotatedTextAlt">BUILD YOUR PLANNER</span>
                 </Modal.Header>
                 <Modal.Body>
-                    <h3>Event Settings:</h3>
+                    <h4>Event Settings:</h4>
                     <ListGroup className="arsenal-bold mb-3">
                         {Object.keys(displayEventsSettings).map((eventType, index) =>
                             <ListGroup.Item key={index} className={eventType.replaceAll(' ', '')}>
@@ -64,7 +65,7 @@ function EventOptionsModal({ showSettings, handleCloseSettings, displayEventsSet
                         </ListGroup.Item>)
                         }
                     </ListGroup>
-                    <h3>General Settings:</h3>
+                    <h4>General Settings:</h4>
                     <ListGroup className="arsenal-bold mb-2">
                         <ListGroup.Item>
                             <Form.Check type="checkbox" id="WeatherDetailsCheck" checked={displayWeatherDetails}

@@ -39,7 +39,7 @@ export default function App() {
     const [upPressed, setUpPressed] = useState(false);
     const [downPressed, setDownPressed] = useState(false);
 
-    var eventTypesList = ["Story", "Exam", "Jazz Club", "Puzzle", "Class", "TV", "Subway", "Crane"];
+    var eventTypesList = ["Story", "Exam", "Jazz Club", "Puzzle", "Class", "TV", "Shopping", "Subway", "Crane"];
     var displayEventSettingsInitial = {};
     eventTypesList.forEach(eventType => {
         var displayIfUnset = true;
